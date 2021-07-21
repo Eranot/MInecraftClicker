@@ -9,9 +9,9 @@ const ItemSlot = (props) => {
         onDrag(inventorySlot);
     }
 
-    const _onDrop = (event) => {
+    const _onDrop = async (event) => {
         event.preventDefault();
-        onDrop(inventorySlot);
+        await onDrop(inventorySlot);
     }
 
     const _onDragOver = (event) => {

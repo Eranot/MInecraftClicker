@@ -19,11 +19,8 @@ const CraftingTable = () => {
     const inventoryService = InventoryService.getInstance();
 
     useEffect(() => {
-        setCraftResultSlot(inventoryService.getCraftResultSlot());
-        setCraftingTableInventorySlots(inventoryService.getCraftingTableInventorySlots());
-
-        setInventorySlots(inventoryService.getRegularInventorySlots());
         setNumberOfSlots(27);
+        updateAllSlots();
     }, []);
 
     const onDrag = (inventorySlot) => {
@@ -31,32 +28,33 @@ const CraftingTable = () => {
     }
 
     const onDragFromResultSlot = (inventorySlot) => {
-        // Remover os itens do space
-        let s = new CraftingService();
-        s.removeItemsFromCraftingSpace(craftingTableInventorySlots, 3, 3, inventorySlot.item);
-
         onDrag(inventorySlot);
+
+        // If the item was dragged, it isn't a ghost anymore
+        inventorySlot.ghost = false;
+
+        // Remover os itens do space
+        let craftingService = new CraftingService();
+        craftingService.removeItemsFromCraftingSpace(craftingTableInventorySlots, 3, 3, inventorySlot.item);
     }
 
-    const onDrop = (inventorySlot) => {
+    const onDrop = async (inventorySlot) => {
         if (!selectedInventorySlot) {
             return;
         }
 
+        await setSelectedInventorySlot(false);
+
         inventoryService.moveItem(selectedInventorySlot, inventorySlot);
-        setSelectedInventorySlot(null);
 
-        updateAllSlots();
-
-        const lista = inventoryService.getCraftingTableInventorySlots();
-        setCraftingTableInventorySlots(lista)
-
-        return lista;
+        await updateAllSlots();
+        return inventoryService.getCraftingTableInventorySlots();
     }
 
-    const updateAllSlots = () => {
-        setInventorySlots(inventoryService.getRegularInventorySlots());
-        setCraftResultSlot(inventoryService.getCraftResultSlot());
+    const updateAllSlots = async () => {
+        await setCraftingTableInventorySlots(inventoryService.getCraftingTableInventorySlots())
+        await setInventorySlots(inventoryService.getRegularInventorySlots());
+        await setCraftResultSlot(inventoryService.getCraftResultSlot());
     }
 
     const getSlots = () => {
@@ -70,12 +68,14 @@ const CraftingTable = () => {
     }
 
     const onCreateItem = (item, quantity) => {
-        console.log("onCreateItem")
-        if (craftResultSlot) {
+        if (craftResultSlot && (!craftResultSlot.item || craftResultSlot.ghost)) {
             craftResultSlot.item = item;
             craftResultSlot.quantity = quantity;
-            const newInventorySlot = new InventorySlot(item, quantity)
-            setCraftResultSlot(newInventorySlot);
+            craftResultSlot.ghost = item ? true : false;
+
+            setCraftResultSlot(inventoryService.getCraftResultSlot());
+
+            updateAllSlots();
         }
     }
 

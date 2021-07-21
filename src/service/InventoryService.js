@@ -63,10 +63,10 @@ class InventoryService {
 
             // Crafting table
             new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 1),
-            new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 1),
-            new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 2),
             new InventorySlot(null, 0),
-            new InventorySlot(itemService.getItemById(ITEM.STICK), 2),
+            new InventorySlot(null, 0),
+            new InventorySlot(null, 0),
+            new InventorySlot(itemService.getItemById(ITEM.FLINT), 1),
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),
@@ -82,11 +82,11 @@ class InventoryService {
     }
 
     getCraftingTableInventorySlots = () => {
-        return this._inventorySlots.slice(37, 47);
+        return this._inventorySlots.slice(37, 46);
     }
 
     getCraftResultSlot = () => {
-        return this._inventorySlots.slice(47, 48);
+        return this._inventorySlots[46];
     }
 
     moveItem(from, to) {

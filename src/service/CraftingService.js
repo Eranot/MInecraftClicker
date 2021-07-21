@@ -11,7 +11,7 @@ class CraftingService {
         const items = this.itemService.getAllItems();
 
         for (const item of items) {
-            if (this.testRecipe(inventorySlots, columns, rows, item)) {
+            if (this._testRecipe(inventorySlots, columns, rows, item)) {
                 console.log({ item });
                 return [item, 1];
             }
@@ -21,13 +21,13 @@ class CraftingService {
     }
 
     removeItemsFromCraftingSpace(inventorySlots, columns, rows, item) {
-        if (item.recipe.length == 0 || item.recipe.length > rows || item.recipe[0].lenght > columns) {
+        if (!item || item.recipe.length == 0 || item.recipe.length > rows || item.recipe[0].lenght > columns) {
             return false;
         }
 
         for (let rowModifier = 0; rowModifier <= rows - item.recipe.length; rowModifier += 1) {
             for (let columnModifier = 0; columnModifier <= columns - item.recipe[0].length; columnModifier += 1) {
-                if (this.testRecipeWithModifiers(inventorySlots, columns, rows, item, rowModifier, columnModifier)) {
+                if (this._testRecipeWithModifiers(inventorySlots, columns, rows, item, rowModifier, columnModifier)) {
 
                     for (let row = rowModifier; row < item.recipe.length + rowModifier; row += 1) {
                         for (let column = columnModifier; column < item.recipe[0].length + columnModifier; column += 1) {
@@ -45,7 +45,7 @@ class CraftingService {
         }
     }
 
-    testRecipe(inventorySlots, columns, rows, item) {
+    _testRecipe(inventorySlots, columns, rows, item) {
 
         if (item.recipe.length == 0 || item.recipe.length > rows || item.recipe[0].lenght > columns) {
             return false;
@@ -53,7 +53,7 @@ class CraftingService {
 
         for (let rowModifier = 0; rowModifier <= rows - item.recipe.length; rowModifier += 1) {
             for (let columnModifier = 0; columnModifier <= columns - item.recipe[0].length; columnModifier += 1) {
-                if (this.testRecipeWithModifiers(inventorySlots, columns, rows, item, rowModifier, columnModifier)) {
+                if (this._testRecipeWithModifiers(inventorySlots, columns, rows, item, rowModifier, columnModifier)) {
                     return true;
                 }
             }
@@ -62,7 +62,7 @@ class CraftingService {
         return false;
     }
 
-    testRecipeWithModifiers(inventorySlots, columns, rows, item, rowModifier, columnModifier) {
+    _testRecipeWithModifiers(inventorySlots, columns, rows, item, rowModifier, columnModifier) {
         for (let row = 0; row < rows; row += 1) {
             for (let column = 0; column < columns; column += 1) {
                 let index = (row + rowModifier) * columns + (column + columnModifier);
