@@ -1,0 +1,28 @@
+:root {
+    --item-light-border: white;
+    --item-gray-border: #8c8c8c;
+    --item-dark-border: #383838;
+}
+
+
+.item-slot {
+    width: calc(var(--pixel-scale) * 18px);
+    height: calc(var(--pixel-scale) * 18px);
+    background: #8b8b8b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        /* Esquerda */
+        inset calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--item-dark-border),
+        inset calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--item-light-border),
+        inset calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--item-gray-border);
+}
+
+.item-image {
+    width: 90%;
+    height: 90%;
+    image-rendering: pixelated;
+    transform: translate(0, 0);
+}

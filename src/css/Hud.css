@@ -1,0 +1,66 @@
+:root {
+    --inner: #c6c6c6;
+    --light-border: white;
+    --dark-border: #555555;
+    --border: #010101;
+    --pixel-scale: 3;
+}
+
+.painel {
+    margin: calc(var(--pixel-scale) * 4px) calc(var(--pixel-scale) * 4px) calc(var(--pixel-scale) * 4px) calc(var(--pixel-scale) * 3px);
+    padding: 10px;
+    background: var(--inner);
+    transform-origin: top left;
+    box-shadow:
+        /* Aumetando a linha cinza para esquerda e cima */
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--inner),
+
+        /* Aumentando a linha cinza pra direita e baixo */
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--inner),
+        calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--inner),
+
+        /* Borda branca da esquerda */
+        calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--light-border),
+        calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--light-border),
+        /* Borda branca de cima */
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * -3px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--light-border),
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * -3px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--light-border),
+
+        /* Borda cinza de baixo */
+        calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 3px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--dark-border),
+        calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 3px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--dark-border),
+        /* Um pixel cinza inner em baixo e esquerda */
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--inner),
+        /* Borda cinza da direita */
+        calc(var(--pixel-scale) * 3px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--dark-border),
+        calc(var(--pixel-scale) * 3px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--dark-border),
+        /* Um pixel cinza inner em cima e direita */
+        calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--inner),
+
+        /* Borda preta da esquerda */
+        calc(var(--pixel-scale) * -3px) calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        calc(var(--pixel-scale) * -3px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        /* Borda preta de cima */
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * -4px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * -4px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        /* Borda preta de um pixel só em cima*/
+        calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * -3px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        /* Borda preta de um pixel só em baixo*/
+        calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 3px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        /* Borda preta de baixo */
+        calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 4px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 4px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        /* Borda preta da direita */
+        calc(var(--pixel-scale) * 4px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        calc(var(--pixel-scale) * 4px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        /* Borda preta de um pixel só na esquerda embaixo*/
+        calc(var(--pixel-scale) * 3px) calc(var(--pixel-scale) * 3px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        /* Borda preta de um pixel só em cima na direita*/
+        calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * -3px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+        calc(var(--pixel-scale) * 3px) calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--border),
+
+        /* Cinza escuro de baixo */
+        calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 1px) var(--dark-border),
+        calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 1px) var(--dark-border);
+}

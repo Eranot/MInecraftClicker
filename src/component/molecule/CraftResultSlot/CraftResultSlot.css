@@ -1,0 +1,5 @@
+.c-3-3 {
+    display: grid;
+    grid-template-columns: 
+        calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px);
+}

@@ -1,0 +1,11 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 
+        calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px)
+        calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px)
+        calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px);
+}
+
+.row {
+    display: flex;
+}
