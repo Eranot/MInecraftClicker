@@ -43,12 +43,22 @@ const CraftingTable = () => {
             return;
         }
 
+        const craftingService = new CraftingService();
+
+        // If it is a ghost item, make it real
+        if (inventorySlot.ghost) {
+            inventorySlot.ghost = false;
+            craftingService.removeItemsFromCraftingSpace(craftingTableInventorySlots, 3, 3, inventorySlot.item);
+        }
+
         await setSelectedInventorySlot(false);
-
         inventoryService.moveItem(selectedInventorySlot, inventorySlot);
-
         await updateAllSlots();
-        return inventoryService.getCraftingTableInventorySlots();
+
+        // Test crafting after all drops
+
+        const [item, quantity] = craftingService.craftItem(inventoryService.getCraftingTableInventorySlots(), 3, 3);
+        await onCreateItem(item, quantity);
     }
 
     const updateAllSlots = async () => {
@@ -67,13 +77,13 @@ const CraftingTable = () => {
             ></ItemSlot>)
     }
 
-    const onCreateItem = (item, quantity) => {
+    const onCreateItem = async (item, quantity) => {
         if (craftResultSlot && (!craftResultSlot.item || craftResultSlot.ghost)) {
             craftResultSlot.item = item;
             craftResultSlot.quantity = quantity;
             craftResultSlot.ghost = item ? true : false;
 
-            setCraftResultSlot(inventoryService.getCraftResultSlot());
+            await setCraftResultSlot(inventoryService.getCraftResultSlot());
 
             updateAllSlots();
         }

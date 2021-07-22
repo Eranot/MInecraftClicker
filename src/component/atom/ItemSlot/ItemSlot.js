@@ -25,12 +25,16 @@ const ItemSlot = (props) => {
             onDragOver={_onDragOver}
         >
             {inventorySlot?.item && (
-                <img
-                    className="item-image"
-                    src={"item/" + inventorySlot.item.icon + ".png"}
-                    draggable="true"
-                    onDragStart={_onDrag}
-                />
+                <>
+                    <img
+                        className="item-image"
+                        src={"item/" + inventorySlot.item.icon + ".png"}
+                        draggable="true"
+                        onDragStart={_onDrag}
+                    />
+
+                    <div className="quantity">{inventorySlot.quantity}</div>
+                </>
             )}
         </div>
     )

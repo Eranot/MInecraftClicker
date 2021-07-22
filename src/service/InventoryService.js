@@ -62,7 +62,7 @@ class InventoryService {
             new InventorySlot(null, 0),
 
             // Crafting table
-            new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 1),
+            new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 64),
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),
