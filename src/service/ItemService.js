@@ -7,13 +7,13 @@ class ItemService {
         this._items = [
             new Item(ITEM.FLINT_AND_STEEL, "Flint and steel", "flint_and_steel", [
                 [ITEM.IRON_INGOT, ITEM.FLINT],
-            ]),
-            new Item(ITEM.WOODEN_PICKAXE, "Wooden Pickaxe", "wooden_pickaxe", []),
+            ], 1),
+            new Item(ITEM.WOODEN_PICKAXE, "Wooden Pickaxe", "wooden_pickaxe", [], 1),
             new Item(ITEM.IRON_PICKAXE, "Iron Pickaxe", "iron_pickaxe", [
                 [ITEM.IRON_INGOT, ITEM.IRON_INGOT, ITEM.IRON_INGOT],
                 [null, ITEM.STICK, null],
                 [null, ITEM.STICK, null],
-            ]),
+            ], 1),
             new Item(ITEM.WOOD, "Wood", "wood", []),
             new Item(ITEM.IRON_INGOT, "Iron Ingot", "iron_ingot", []),
             new Item(ITEM.COBBLESTONE, "Cobblestone", "cobblestone", []),

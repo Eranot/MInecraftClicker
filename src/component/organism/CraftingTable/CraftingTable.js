@@ -35,11 +35,11 @@ const CraftingTable = () => {
 
         // Remover os itens do space
         let craftingService = new CraftingService();
-        craftingService.removeItemsFromCraftingSpace(craftingTableInventorySlots, 3, 3, inventorySlot.item);
+        craftingService.removeItemsFromCraftingSpace(craftingTableInventorySlots, 3, 3, inventorySlot);
     }
 
     const onDrop = async (inventorySlot) => {
-        if (!selectedInventorySlot) {
+        if (!selectedInventorySlot || selectedInventorySlot == inventorySlot) {
             return;
         }
 
@@ -48,7 +48,7 @@ const CraftingTable = () => {
         // If it is a ghost item, make it real
         if (inventorySlot.ghost) {
             inventorySlot.ghost = false;
-            craftingService.removeItemsFromCraftingSpace(craftingTableInventorySlots, 3, 3, inventorySlot.item);
+            craftingService.removeItemsFromCraftingSpace(craftingTableInventorySlots, 3, 3, inventorySlot);
         }
 
         await setSelectedInventorySlot(false);
@@ -56,15 +56,19 @@ const CraftingTable = () => {
         await updateAllSlots();
 
         // Test crafting after all drops
-
-        const [item, quantity] = craftingService.craftItem(inventoryService.getCraftingTableInventorySlots(), 3, 3);
-        await onCreateItem(item, quantity);
+        await tryToCreateItem();
     }
 
     const updateAllSlots = async () => {
         await setCraftingTableInventorySlots(inventoryService.getCraftingTableInventorySlots())
         await setInventorySlots(inventoryService.getRegularInventorySlots());
         await setCraftResultSlot(inventoryService.getCraftResultSlot());
+    }
+
+    const tryToCreateItem = async () => {
+        const craftingService = new CraftingService();
+        const [item, quantity] = craftingService.craftItem(inventoryService.getCraftingTableInventorySlots(), 3, 3);
+        await onCreateItem(item, quantity);
     }
 
     const getSlots = () => {
@@ -78,14 +82,15 @@ const CraftingTable = () => {
     }
 
     const onCreateItem = async (item, quantity) => {
-        if (craftResultSlot && (!craftResultSlot.item || craftResultSlot.ghost)) {
-            craftResultSlot.item = item;
-            craftResultSlot.quantity = quantity;
-            craftResultSlot.ghost = item ? true : false;
+        let resultSlot = inventoryService.getCraftResultSlot();
+
+        if (resultSlot && (!resultSlot.item || resultSlot.ghost)) {
+            resultSlot.item = item;
+            resultSlot.quantity = quantity;
+            resultSlot.ghost = item ? true : false;
 
             await setCraftResultSlot(inventoryService.getCraftResultSlot());
-
-            updateAllSlots();
+            await updateAllSlots();
         }
     }
 

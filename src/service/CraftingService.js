@@ -11,16 +11,20 @@ class CraftingService {
         const items = this.itemService.getAllItems();
 
         for (const item of items) {
-            if (this._testRecipe(inventorySlots, columns, rows, item)) {
-                console.log({ item });
-                return [item, 1];
+            let quantity = this._testRecipe(inventorySlots, columns, rows, item);
+            if (quantity > 0) {
+                console.log({ item, quantity });
+                return [item, quantity];
             }
         }
 
         return [null, null];
     }
 
-    removeItemsFromCraftingSpace(inventorySlots, columns, rows, item) {
+    removeItemsFromCraftingSpace(inventorySlots, columns, rows, craftingInventorySlot) {
+        const item = craftingInventorySlot.item;
+        const quantityToRemove = craftingInventorySlot.quantity;
+
         if (!item || item.recipe.length == 0 || item.recipe.length > rows || item.recipe[0].lenght > columns) {
             return false;
         }
@@ -34,8 +38,13 @@ class CraftingService {
 
                             let index = row * columns + column;
 
-                            inventorySlots[index].item = null;
-                            inventorySlots[index].quantity = null;
+                            if (inventorySlots[index].quantity <= quantityToRemove) {
+                                inventorySlots[index].item = null;
+                                inventorySlots[index].quantity = null;
+                            } else {
+                                inventorySlots[index].quantity -= quantityToRemove;
+                            }
+
 
                         }
                     }
@@ -53,18 +62,30 @@ class CraftingService {
 
         for (let rowModifier = 0; rowModifier <= rows - item.recipe.length; rowModifier += 1) {
             for (let columnModifier = 0; columnModifier <= columns - item.recipe[0].length; columnModifier += 1) {
-                if (this._testRecipeWithModifiers(inventorySlots, columns, rows, item, rowModifier, columnModifier)) {
-                    return true;
+                let quantity = this._testRecipeWithModifiers(inventorySlots, columns, rows, item, rowModifier, columnModifier);
+                if (quantity > 0) {
+                    return quantity;
                 }
             }
         }
 
-        return false;
+        return 0;
     }
 
     _testRecipeWithModifiers(inventorySlots, columns, rows, item, rowModifier, columnModifier) {
+        let lessQuantity = item.maxStack;
+
         for (let row = 0; row < rows; row += 1) {
             for (let column = 0; column < columns; column += 1) {
+
+                if (row < rowModifier || column < columnModifier) {
+                    let indexNormal = row * columns + column;
+                    let itemId = inventorySlots[indexNormal]?.item?.id ?? null;
+                    if (itemId) {
+                        return 0;
+                    }
+                }
+
                 let index = (row + rowModifier) * columns + (column + columnModifier);
                 let itemId = inventorySlots[index]?.item?.id ?? null;
 
@@ -75,17 +96,19 @@ class CraftingService {
                     if (!itemId) {
                         continue;
                     } else { // Se tem um item, não pode ser o item selecionado
-                        return false;
+                        return 0;
                     }
                 }
 
                 if (itemId !== item.recipe[row][column]) {
-                    return false;
+                    return 0;
                 }
+
+                lessQuantity = lessQuantity > inventorySlots[index].quantity ? inventorySlots[index].quantity : lessQuantity;
             }
         }
 
-        return true;
+        return lessQuantity;
     }
 
 }

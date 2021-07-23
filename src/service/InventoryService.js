@@ -66,7 +66,7 @@ class InventoryService {
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),
-            new InventorySlot(itemService.getItemById(ITEM.FLINT), 1),
+            new InventorySlot(itemService.getItemById(ITEM.FLINT), 10),
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),

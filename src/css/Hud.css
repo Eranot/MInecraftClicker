@@ -11,6 +11,7 @@
     padding: 10px;
     background: var(--inner);
     transform-origin: top left;
+    width: fit-content;
     box-shadow:
         /* Aumetando a linha cinza para esquerda e cima */
         calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--inner),

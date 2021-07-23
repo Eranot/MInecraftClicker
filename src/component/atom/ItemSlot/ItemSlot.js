@@ -33,7 +33,7 @@ const ItemSlot = (props) => {
                         onDragStart={_onDrag}
                     />
 
-                    <div className="quantity">{inventorySlot.quantity}</div>
+                    <div className="quantity" style={{ display: inventorySlot.quantity == 1 ? 'none' : 'block' }}>{inventorySlot.quantity}</div>
                 </>
             )}
         </div>
