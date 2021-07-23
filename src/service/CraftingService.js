@@ -6,7 +6,7 @@ class CraftingService {
         this.itemService = new ItemService();
     }
 
-    // Returns the new item, quantity of the item
+    // Returns the new item and quantity
     craftItem(inventorySlots, columns, rows) {
         const items = this.itemService.getAllItems();
 
@@ -23,7 +23,7 @@ class CraftingService {
 
     removeItemsFromCraftingSpace(inventorySlots, columns, rows, craftingInventorySlot) {
         const item = craftingInventorySlot.item;
-        const quantityToRemove = craftingInventorySlot.quantity;
+        const quantityToRemove = craftingInventorySlot.quantity / item.recipeQuantity;
 
         if (!item || item.recipe.length == 0 || item.recipe.length > rows || item.recipe[0].lenght > columns) {
             return false;
@@ -48,7 +48,6 @@ class CraftingService {
 
                         }
                     }
-
                 }
             }
         }
@@ -104,7 +103,9 @@ class CraftingService {
                     return 0;
                 }
 
-                lessQuantity = lessQuantity > inventorySlots[index].quantity ? inventorySlots[index].quantity : lessQuantity;
+                lessQuantity = lessQuantity > inventorySlots[index].quantity * item.recipeQuantity
+                    ? inventorySlots[index].quantity * item.recipeQuantity
+                    : lessQuantity;
             }
         }
 

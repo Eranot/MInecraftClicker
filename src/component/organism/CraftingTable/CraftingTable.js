@@ -6,22 +6,17 @@ import CraftingService from '../../../service/CraftingService';
 import ItemSlot from '../../atom/ItemSlot/ItemSlot';
 import CraftingSpace from '../../molecule/CraftingSpace/CraftingSpace';
 import CraftResultSlot from '../../molecule/CraftResultSlot/CraftResultSlot';
-import InventorySlot from '../../../model/InventorySlot';
 
 const CraftingTable = () => {
 
-    const [inventorySlots, setInventorySlots] = useState([]);
-    const [numberOfSlots, setNumberOfSlots] = useState([]);
-    const [selectedInventorySlot, setSelectedInventorySlot] = useState(null);
-    const [craftResultSlot, setCraftResultSlot] = useState(null);
-    const [craftingTableInventorySlots, setCraftingTableInventorySlots] = useState([]);
-
     const inventoryService = InventoryService.getInstance();
 
-    useEffect(() => {
-        setNumberOfSlots(27);
-        updateAllSlots();
-    }, []);
+    const inventorySlots = inventoryService.getRegularInventorySlots();
+    const craftResultSlot = inventoryService.getCraftResultSlot();
+    const craftingTableInventorySlots = inventoryService.getCraftingTableInventorySlots();
+
+    const [selectedInventorySlot, setSelectedInventorySlot] = useState(null);
+    const [, forceUpdate] = useReducer(x => x + 1, 0);
 
     const onDrag = (inventorySlot) => {
         setSelectedInventorySlot(inventorySlot);
@@ -53,17 +48,12 @@ const CraftingTable = () => {
 
         await setSelectedInventorySlot(false);
         inventoryService.moveItem(selectedInventorySlot, inventorySlot);
-        await updateAllSlots();
+        await forceUpdate();
 
         // Test crafting after all drops
         await tryToCreateItem();
     }
 
-    const updateAllSlots = async () => {
-        await setCraftingTableInventorySlots(inventoryService.getCraftingTableInventorySlots())
-        await setInventorySlots(inventoryService.getRegularInventorySlots());
-        await setCraftResultSlot(inventoryService.getCraftResultSlot());
-    }
 
     const tryToCreateItem = async () => {
         const craftingService = new CraftingService();
@@ -72,10 +62,9 @@ const CraftingTable = () => {
     }
 
     const getSlots = () => {
-        return [...Array(numberOfSlots).keys()].map((index) =>
+        return inventorySlots.map((inventorySlot) =>
             <ItemSlot
-                inventorySlot={inventorySlots[index]}
-                index={index}
+                inventorySlot={inventorySlot}
                 onDrag={onDrag}
                 onDrop={onDrop}
             ></ItemSlot>)
@@ -89,8 +78,7 @@ const CraftingTable = () => {
             resultSlot.quantity = quantity;
             resultSlot.ghost = item ? true : false;
 
-            await setCraftResultSlot(inventoryService.getCraftResultSlot());
-            await updateAllSlots();
+            await forceUpdate();
         }
     }
 

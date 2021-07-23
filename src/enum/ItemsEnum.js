@@ -9,6 +9,8 @@ const ITEM = {
     IRON_ORE: 'IRON_ORE',
     FLINT: 'FLINT',
     FLINT_AND_STEEL: 'FLINT_AND_STEEL',
+    COAL: 'COAL',
+    TORCH: 'TORCH',
 }
 
 export default ITEM;

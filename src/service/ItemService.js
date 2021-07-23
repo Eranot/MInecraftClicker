@@ -19,6 +19,8 @@ class ItemService {
             new Item(ITEM.COBBLESTONE, "Cobblestone", "cobblestone", []),
             new Item(ITEM.STICK, "Stick", "stick", []),
             new Item(ITEM.FLINT, "Flint", "flint", []),
+            new Item(ITEM.COAL, "Coal", "coal", []),
+            new Item(ITEM.TORCH, "Torch", "torch", [[ITEM.COAL], [ITEM.STICK]], 4),
         ]
     }
 
