@@ -13,7 +13,7 @@ class ItemService {
                 [ITEM.IRON_INGOT, ITEM.IRON_INGOT, ITEM.IRON_INGOT],
                 [null, ITEM.STICK, null],
                 [null, ITEM.STICK, null],
-            ], 1),
+            ], 1, 1),
             new Item(ITEM.WOOD, "Wood", "wood", []),
             new Item(ITEM.IRON_INGOT, "Iron Ingot", "iron_ingot", []),
             new Item(ITEM.COBBLESTONE, "Cobblestone", "cobblestone", []),

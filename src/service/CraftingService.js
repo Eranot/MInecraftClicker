@@ -25,7 +25,7 @@ class CraftingService {
         const item = craftingInventorySlot.item;
         const quantityToRemove = craftingInventorySlot.quantity / item.recipeQuantity;
 
-        if (!item || item.recipe.length == 0 || item.recipe.length > rows || item.recipe[0].lenght > columns) {
+        if (!item || item.recipe.length === 0 || item.recipe.length > rows || item.recipe[0].lenght > columns) {
             return false;
         }
 
@@ -55,7 +55,7 @@ class CraftingService {
 
     _testRecipe(inventorySlots, columns, rows, item) {
 
-        if (item.recipe.length == 0 || item.recipe.length > rows || item.recipe[0].lenght > columns) {
+        if (item.recipe.length === 0 || item.recipe.length > rows || item.recipe[0].lenght > columns) {
             return false;
         }
 
@@ -76,7 +76,6 @@ class CraftingService {
 
         for (let row = 0; row < rows; row += 1) {
             for (let column = 0; column < columns; column += 1) {
-
                 if (row < rowModifier || column < columnModifier) {
                     let indexNormal = row * columns + column;
                     let itemId = inventorySlots[indexNormal]?.item?.id ?? null;
@@ -103,9 +102,12 @@ class CraftingService {
                     return 0;
                 }
 
-                lessQuantity = lessQuantity > inventorySlots[index].quantity * item.recipeQuantity
-                    ? inventorySlots[index].quantity * item.recipeQuantity
-                    : lessQuantity;
+                if (inventorySlots[index].item) {
+                    lessQuantity = lessQuantity > inventorySlots[index].quantity * item.recipeQuantity
+                        ? inventorySlots[index].quantity * item.recipeQuantity
+                        : lessQuantity;
+                }
+
             }
         }
 

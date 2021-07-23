@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../../../css/Hud.css';
 import './CraftingSpace.css';
 import ItemSlot from '../../atom/ItemSlot/ItemSlot';
-import CraftingService from '../../../service/CraftingService';
 
 const CraftingSpace = (props) => {
-    const { inventorySlots, onCreateItem, onDrag, onDrop, columns, rows, } = props;
+    const { inventorySlots, onDrag, onDrop, columns, rows, } = props;
 
     const getSlots = () => {
         return [...Array(columns * rows).keys()].map((index) =>
             <ItemSlot
+                key={index}
                 inventorySlot={inventorySlots[index]}
                 index={index}
                 onDrag={onDrag}

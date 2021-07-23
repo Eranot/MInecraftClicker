@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ItemSlot.css';
 
 const ItemSlot = (props) => {
@@ -33,7 +33,7 @@ const ItemSlot = (props) => {
                         onDragStart={_onDrag}
                     />
 
-                    <div className="quantity" style={{ display: inventorySlot.quantity == 1 ? 'none' : 'block' }}>{inventorySlot.quantity}</div>
+                    <div className="quantity" style={{ display: inventorySlot.quantity === 1 ? 'none' : 'block' }}>{inventorySlot.quantity}</div>
                 </>
             )}
         </div>

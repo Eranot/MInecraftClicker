@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer } from 'react';
+import React, { useState, useReducer } from 'react';
 import '../../../css/Hud.css';
 import './CraftingTable.css';
 import InventoryService from '../../../service/InventoryService';
@@ -34,7 +34,7 @@ const CraftingTable = () => {
     }
 
     const onDrop = async (inventorySlot) => {
-        if (!selectedInventorySlot || selectedInventorySlot == inventorySlot) {
+        if (!selectedInventorySlot || selectedInventorySlot === inventorySlot) {
             return;
         }
 
@@ -62,8 +62,9 @@ const CraftingTable = () => {
     }
 
     const getSlots = () => {
-        return inventorySlots.map((inventorySlot) =>
+        return inventorySlots.map((inventorySlot, index) =>
             <ItemSlot
+                key={index}
                 inventorySlot={inventorySlot}
                 onDrag={onDrag}
                 onDrop={onDrop}
@@ -92,7 +93,6 @@ const CraftingTable = () => {
                     selectedInventorySlot={selectedInventorySlot}
                     onDrag={onDrag}
                     onDrop={onDrop}
-                    onCreateItem={onCreateItem}
                 />
 
                 <CraftResultSlot

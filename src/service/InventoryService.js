@@ -1,5 +1,4 @@
 import InventorySlot from '../model/InventorySlot';
-import Item from '../model/Item';
 import ItemService from '../service/ItemService';
 import ITEM from "../enum/ItemsEnum";
 
@@ -36,7 +35,7 @@ class InventoryService {
             new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 1),
             new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 1),
             new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 2),
-            new InventorySlot(itemService.getItemById(ITEM.STICK), 64),
+            new InventorySlot(itemService.getItemById(ITEM.STICK), 63),
             new InventorySlot(itemService.getItemById(ITEM.STICK), 2),
             new InventorySlot(itemService.getItemById(ITEM.FLINT), 2),
             new InventorySlot(itemService.getItemById(ITEM.COAL), 64, 0),
@@ -62,7 +61,7 @@ class InventoryService {
             new InventorySlot(null, 0),
 
             // Crafting table
-            new InventorySlot(itemService.getItemById(ITEM.COAL), 64),
+            new InventorySlot(itemService.getItemById(ITEM.COAL), 60),
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),
@@ -92,6 +91,18 @@ class InventoryService {
     moveItem(from, to) {
         let indexTo = this._inventorySlots.indexOf(to);
         let indexFrom = this._inventorySlots.indexOf(from);
+
+        // If the items are the same, we want to stack them
+        if (from.item && to.item && from.item.id === to.item.id) {
+            if (from.quantity + to.quantity <= from.item.maxStack) {
+                from.quantity = from.quantity + to.quantity;
+                to.item = null;
+                to.quantity = null;
+            } else {
+                to.quantity = from.quantity + to.quantity - from.item.maxStack;
+                from.quantity = from.item.maxStack;
+            }
+        }
 
         this._inventorySlots[indexTo] = from;
         this._inventorySlots[indexFrom] = to;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../../../css/Hud.css';
 import './CraftResultSlot.css';
 import ItemSlot from '../../atom/ItemSlot/ItemSlot';
