@@ -73,6 +73,9 @@ class InventoryService {
 
             // Crafting table result slot
             new InventorySlot(null, 0),
+
+            // Mouse slot
+            new InventorySlot(null, 0),
         ]
     }
 
@@ -86,6 +89,10 @@ class InventoryService {
 
     getCraftResultSlot = () => {
         return this._inventorySlots[46];
+    }
+
+    getMouseSlot = () => {
+        return this._inventorySlots[47];
     }
 
     moveItem(from, to) {

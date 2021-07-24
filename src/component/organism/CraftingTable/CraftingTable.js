@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import '../../../css/Hud.css';
 import './CraftingTable.css';
 import InventoryService from '../../../service/InventoryService';
@@ -6,6 +6,7 @@ import CraftingService from '../../../service/CraftingService';
 import ItemSlot from '../../atom/ItemSlot/ItemSlot';
 import CraftingSpace from '../../molecule/CraftingSpace/CraftingSpace';
 import CraftResultSlot from '../../molecule/CraftResultSlot/CraftResultSlot';
+import MouseSlot from '../../molecule/MouseSlot/MouseSlot';
 
 const CraftingTable = () => {
 
@@ -14,30 +15,17 @@ const CraftingTable = () => {
     const inventorySlots = inventoryService.getRegularInventorySlots();
     const craftResultSlot = inventoryService.getCraftResultSlot();
     const craftingTableInventorySlots = inventoryService.getCraftingTableInventorySlots();
+    const mouseSlot = inventoryService.getMouseSlot();
 
-    const [selectedInventorySlot, setSelectedInventorySlot] = useState(null);
     const [, forceUpdate] = useReducer(x => x + 1, 0);
 
-    const onDrag = (inventorySlot) => {
-        setSelectedInventorySlot(inventorySlot);
+    const tryToCreateItem = async () => {
+        const craftingService = new CraftingService();
+        const [item, quantity] = craftingService.craftItem(inventoryService.getCraftingTableInventorySlots(), 3, 3);
+        await onCreateItem(item, quantity);
     }
 
-    const onDragFromResultSlot = (inventorySlot) => {
-        onDrag(inventorySlot);
-
-        // If the item was dragged, it isn't a ghost anymore
-        inventorySlot.ghost = false;
-
-        // Remover os itens do space
-        let craftingService = new CraftingService();
-        craftingService.removeItemsFromCraftingSpace(craftingTableInventorySlots, 3, 3, inventorySlot);
-    }
-
-    const onDrop = async (inventorySlot) => {
-        if (!selectedInventorySlot || selectedInventorySlot === inventorySlot) {
-            return;
-        }
-
+    const onSelectItem = async (inventorySlot) => {
         const craftingService = new CraftingService();
 
         // If it is a ghost item, make it real
@@ -46,19 +34,11 @@ const CraftingTable = () => {
             craftingService.removeItemsFromCraftingSpace(craftingTableInventorySlots, 3, 3, inventorySlot);
         }
 
-        await setSelectedInventorySlot(false);
-        inventoryService.moveItem(selectedInventorySlot, inventorySlot);
+        inventoryService.moveItem(mouseSlot, inventorySlot);
         await forceUpdate();
 
         // Test crafting after all drops
         await tryToCreateItem();
-    }
-
-
-    const tryToCreateItem = async () => {
-        const craftingService = new CraftingService();
-        const [item, quantity] = craftingService.craftItem(inventoryService.getCraftingTableInventorySlots(), 3, 3);
-        await onCreateItem(item, quantity);
     }
 
     const getSlots = () => {
@@ -66,8 +46,7 @@ const CraftingTable = () => {
             <ItemSlot
                 key={index}
                 inventorySlot={inventorySlot}
-                onDrag={onDrag}
-                onDrop={onDrop}
+                onSelectItem={onSelectItem}
             ></ItemSlot>)
     }
 
@@ -90,21 +69,21 @@ const CraftingTable = () => {
                     columns={3}
                     rows={3}
                     inventorySlots={craftingTableInventorySlots}
-                    selectedInventorySlot={selectedInventorySlot}
-                    onDrag={onDrag}
-                    onDrop={onDrop}
+                    onSelectItem={onSelectItem}
                 />
 
                 <CraftResultSlot
                     inventorySlot={craftResultSlot}
-                    onDrag={onDragFromResultSlot}
-                    onDrop={onDrop}
+                    onSelectItem={onSelectItem}
                 />
 
             </div>
             <div className="grid-container">
                 {getSlots()}
             </div>
+            <MouseSlot
+                inventorySlot={mouseSlot}
+            />
         </div>
     )
 }

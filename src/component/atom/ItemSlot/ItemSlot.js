@@ -3,26 +3,12 @@ import './ItemSlot.css';
 
 const ItemSlot = (props) => {
 
-    const { inventorySlot, onDrag, onDrop } = props;
-
-    const _onDrag = (event) => {
-        onDrag(inventorySlot);
-    }
-
-    const _onDrop = async (event) => {
-        event.preventDefault();
-        await onDrop(inventorySlot);
-    }
-
-    const _onDragOver = (event) => {
-        event.preventDefault();
-    }
+    const { inventorySlot, onSelectItem } = props;
 
     return (
         <div
             className="item-slot"
-            onDrop={_onDrop}
-            onDragOver={_onDragOver}
+            onMouseUp={() => onSelectItem(inventorySlot)}
         >
             {inventorySlot?.item && (
                 <>
@@ -30,7 +16,8 @@ const ItemSlot = (props) => {
                         className="item-image"
                         src={"item/" + inventorySlot.item.icon + ".png"}
                         draggable="true"
-                        onDragStart={_onDrag}
+                        onDragStart={() => onSelectItem(inventorySlot)}
+
                     />
 
                     <div className="quantity" style={{ display: inventorySlot.quantity === 1 ? 'none' : 'block' }}>{inventorySlot.quantity}</div>

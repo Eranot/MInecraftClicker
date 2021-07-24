@@ -4,7 +4,7 @@ import './CraftingSpace.css';
 import ItemSlot from '../../atom/ItemSlot/ItemSlot';
 
 const CraftingSpace = (props) => {
-    const { inventorySlots, onDrag, onDrop, columns, rows, } = props;
+    const { inventorySlots, onSelectItem, columns, rows } = props;
 
     const getSlots = () => {
         return [...Array(columns * rows).keys()].map((index) =>
@@ -12,8 +12,7 @@ const CraftingSpace = (props) => {
                 key={index}
                 inventorySlot={inventorySlots[index]}
                 index={index}
-                onDrag={onDrag}
-                onDrop={onDrop}
+                onSelectItem={onSelectItem}
             ></ItemSlot>)
     }
 
