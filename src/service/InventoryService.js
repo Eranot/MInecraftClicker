@@ -114,6 +114,35 @@ class InventoryService {
         this._inventorySlots[indexTo] = from;
         this._inventorySlots[indexFrom] = to;
     }
+
+    sendItemTo(from, to, quantity) {
+
+        if (from.quantity < quantity) {
+            return;
+        }
+
+        // If the items are the same, we add the quantity
+        if (from.item && to.item && from.item.id === to.item.id) {
+            if (to.quantity < to.item.maxStack) {
+                from.quantity -= quantity;
+                to.quantity += quantity;
+                this.checkSlotQuantity(from);
+            }
+        } else if (!to.item) { // If the other slot is empty, create one there
+            to.item = from.item;
+            to.quantity = quantity;
+            from.quantity -= quantity;
+            this.checkSlotQuantity(from);
+        }
+
+    }
+
+    checkSlotQuantity(inventorySlot) {
+        if (inventorySlot.quantity <= 0) {
+            inventorySlot.quantity = 0;
+            inventorySlot.item = null;
+        }
+    }
 }
 
 export default InventoryService;

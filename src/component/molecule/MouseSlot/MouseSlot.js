@@ -16,7 +16,7 @@ const CraftingTable = (props) => {
     }
 
     useEffect(() => {
-        document.addEventListener('mousemove', onMoveMouse)
+        document.addEventListener('mousemove', onMoveMouse);
     }, []);
 
     return (

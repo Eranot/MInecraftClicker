@@ -25,7 +25,7 @@ const CraftingTable = () => {
         await onCreateItem(item, quantity);
     }
 
-    const onSelectItem = async (inventorySlot) => {
+    const onSelectItem = async (inventorySlot, event) => {
         const craftingService = new CraftingService();
 
         // If it is a ghost item, make it real
@@ -34,7 +34,17 @@ const CraftingTable = () => {
             craftingService.removeItemsFromCraftingSpace(craftingTableInventorySlots, 3, 3, inventorySlot);
         }
 
-        inventoryService.moveItem(mouseSlot, inventorySlot);
+        // If it is the left mouse button
+        if (event.button === 0) {
+            inventoryService.moveItem(mouseSlot, inventorySlot);
+        } else if (event.button === 2) { // Right mouse button
+            if (mouseSlot.quantity > 0) {
+                inventoryService.sendItemTo(mouseSlot, inventorySlot, 1);
+            } else {
+                inventoryService.sendItemTo(inventorySlot, mouseSlot, Math.floor(inventorySlot.quantity / 2));
+            }
+        }
+
         await forceUpdate();
 
         // Test crafting after all drops

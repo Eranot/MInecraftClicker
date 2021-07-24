@@ -8,7 +8,7 @@ const ItemSlot = (props) => {
     return (
         <div
             className="item-slot"
-            onMouseUp={() => onSelectItem(inventorySlot)}
+            onMouseUp={(event) => onSelectItem(inventorySlot, event)}
         >
             {inventorySlot?.item && (
                 <>
@@ -16,8 +16,7 @@ const ItemSlot = (props) => {
                         className="item-image"
                         src={"item/" + inventorySlot.item.icon + ".png"}
                         draggable="true"
-                        onDragStart={() => onSelectItem(inventorySlot)}
-
+                        onDragStart={(event) => onSelectItem(inventorySlot, event)}
                     />
 
                     <div className="quantity" style={{ display: inventorySlot.quantity === 1 ? 'none' : 'block' }}>{inventorySlot.quantity}</div>
