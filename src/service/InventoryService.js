@@ -143,6 +143,25 @@ class InventoryService {
             inventorySlot.item = null;
         }
     }
+
+    getFirstAvailableSlot(item) {
+        const slots = this.getRegularInventorySlots();
+
+        for (let slot of slots) {
+            if (slot.item && slot.item.id === item.id && slot.quantity < item.maxStack) {
+                return slot;
+            }
+        }
+
+        for (let slot of slots) {
+            if (!slot.item) {
+                return slot;
+            }
+        }
+
+        return null;
+    }
+
 }
 
 export default InventoryService;

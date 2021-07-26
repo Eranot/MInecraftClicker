@@ -1,0 +1,10 @@
+.hit-button-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    font-size: 21pt;
+    margin-right: 10px;
+}

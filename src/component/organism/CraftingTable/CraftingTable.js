@@ -7,17 +7,18 @@ import ItemSlot from '../../atom/ItemSlot/ItemSlot';
 import CraftingSpace from '../../molecule/CraftingSpace/CraftingSpace';
 import CraftResultSlot from '../../molecule/CraftResultSlot/CraftResultSlot';
 import MouseSlot from '../../molecule/MouseSlot/MouseSlot';
+import { useEffect } from 'react/cjs/react.development';
 
-const CraftingTable = () => {
+const CraftingTable = (props) => {
+
+    const { forceUpdate } = props;
 
     const inventoryService = InventoryService.getInstance();
 
-    const inventorySlots = inventoryService.getRegularInventorySlots();
+    const regularInventorySlots = inventoryService.getRegularInventorySlots();
     const craftResultSlot = inventoryService.getCraftResultSlot();
     const craftingTableInventorySlots = inventoryService.getCraftingTableInventorySlots();
     const mouseSlot = inventoryService.getMouseSlot();
-
-    const [, forceUpdate] = useReducer(x => x + 1, 0);
 
     const tryToCreateItem = async () => {
         const craftingService = new CraftingService();
@@ -52,7 +53,7 @@ const CraftingTable = () => {
     }
 
     const getSlots = () => {
-        return inventorySlots.map((inventorySlot, index) =>
+        return regularInventorySlots.map((inventorySlot, index) =>
             <ItemSlot
                 key={index}
                 inventorySlot={inventorySlot}
