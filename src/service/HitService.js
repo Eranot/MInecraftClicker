@@ -2,6 +2,8 @@ import ItemService from '../service/ItemService';
 import InventoryService from './InventoryService';
 import ITEM from "../enum/ItemsEnum";
 import moment from 'moment';
+import PickaxeService from './ToolService/PickaxeService';
+import HandService from './ToolService/HandService';
 
 // Takes care of the hit function
 class HitService {
@@ -42,6 +44,10 @@ class HitService {
                 const slot = this.inventoryService.getFirstAvailableSlot(item);
 
                 if (!slot) {
+                    this.waitingUntil = null;
+                    clearInterval(intervalId);
+                    setLoadingPercentageCallback(null);
+                    resolve();
                     return;
                 }
 
@@ -62,13 +68,30 @@ class HitService {
         })
     }
 
-    getRandomItem() {
-        return this.itemService.getItemById(ITEM.OAK_LOG);
+    getRandomItem(equipedItemId) {
+
+        let itemId = null;
+
+        switch (equipedItemId) {
+            case ITEM.WOODEN_PICKAXE:
+            case ITEM.STONE_PICKAXE:
+            case ITEM.IRON_PICKAXE:
+            case ITEM.GOLDEN_PICKAXE:
+            case ITEM.DIAMOND_PICKAXE:
+                let pickaxeService = new PickaxeService();
+                itemId = pickaxeService.getRandomItem(equipedItemId);
+            default:
+                let handService = new HandService();
+                itemId = handService.getRandomItem(equipedItemId);
+
+        }
+
+        return this.itemService.getItemById(itemId);
     }
 
     // Get the hit time in milliseconds
     getHitTime() {
-        return 1200;
+        return 200;
     }
 
     getLoadingPercentage() {

@@ -42,29 +42,29 @@ class ItemService {
 
             // Shovels
             new Item(ITEM.WOODEN_SHOVEL, "Wooden Shovel", "wooden_shovel", [
-                [null, ITEM.OAK_PLANKS, null],
-                [null, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.OAK_PLANKS],
+                [ITEM.STICK],
+                [ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.STONE_SHOVEL, "Stone Shovel", "stone_shovel", [
-                [null, ITEM.COBBLESTONE, null],
-                [null, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.COBBLESTONE],
+                [ITEM.STICK],
+                [ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.IRON_SHOVEL, "Iron Shovel", "iron_shovel", [
-                [null, ITEM.IRON_INGOT, null],
-                [null, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.IRON_INGOT],
+                [ITEM.STICK],
+                [ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.GOLDEN_SHOVEL, "Golden Shovel", "golden_shovel", [
-                [null, ITEM.GOLD_INGOT, null],
-                [null, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.GOLD_INGOT],
+                [ITEM.STICK],
+                [ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.DIAMOND_SHOVEL, "Diamond Shovel", "diamond_shovel", [
-                [null, ITEM.DIAMOND, null],
-                [null, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.DIAMOND],
+                [ITEM.STICK],
+                [ITEM.STICK],
             ], 1, 1),
 
             // Axes
@@ -96,29 +96,29 @@ class ItemService {
 
             // Hoes
             new Item(ITEM.WOODEN_HOE, "Wooden Hoe", "wooden_hoe", [
-                [ITEM.OAK_PLANKS, ITEM.OAK_PLANKS, null],
-                [null, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.OAK_PLANKS, ITEM.OAK_PLANKS],
+                [null, ITEM.STICK],
+                [null, ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.STONE_HOE, "Stone Hoe", "stone_hoe", [
-                [ITEM.COBBLESTONE, ITEM.COBBLESTONE, null],
-                [null, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.COBBLESTONE, ITEM.COBBLESTONE],
+                [null, ITEM.STICK],
+                [null, ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.IRON_HOE, "Iron Hoe", "iron_hoe", [
-                [ITEM.IRON_INGOT, ITEM.IRON_INGOT, null],
-                [null, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.IRON_INGOT, ITEM.IRON_INGOT],
+                [null, ITEM.STICK],
+                [null, ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.GOLDEN_HOE, "Golden Hoe", "golden_hoe", [
-                [ITEM.GOLD_INGOT, ITEM.GOLD_INGOT, null],
-                [null, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.GOLD_INGOT, ITEM.GOLD_INGOT],
+                [null, ITEM.STICK],
+                [null, ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.DIAMOND_HOE, "Diamond Hoe", "diamond_hoe", [
-                [ITEM.DIAMOND, ITEM.DIAMOND, null],
-                [null, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.DIAMOND, ITEM.DIAMOND],
+                [null, ITEM.STICK],
+                [null, ITEM.STICK],
             ], 1, 1),
 
             // Commom blocks

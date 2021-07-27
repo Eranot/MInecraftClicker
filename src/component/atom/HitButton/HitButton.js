@@ -7,7 +7,7 @@ const HitButton = (props) => {
 
     const { forceUpdate } = props;
 
-    const [loadingPercentage, setLoadingPercentage] = useState(50);
+    const [loadingPercentage, setLoadingPercentage] = useState(null);
 
     const hitService = HitService.getInstance();
 
@@ -28,6 +28,7 @@ const HitButton = (props) => {
                 <LoadingBar
                     percentage={loadingPercentage}
                     width={100}
+                    height={20}
                 />
             )}
         </div>

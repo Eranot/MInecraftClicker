@@ -145,6 +145,11 @@ class InventoryService {
     }
 
     getFirstAvailableSlot(item) {
+
+        if (!item) {
+            return null;
+        }
+
         const slots = this.getRegularInventorySlots();
 
         for (let slot of slots) {
