@@ -1,8 +1,63 @@
+:root {
+    --button-light-border: #acadaa;
+    --button-dark-border: #585556;
+    --border: #010101;
+}
+
 .hit-button-container {
     margin-top: 20px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
+
+.minecraft-button {
+    margin: calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 2px);
+    padding: 8px 8px 5px 8px;
+    background: #6d6d6d;
+    transform-origin: top left;
+    width: fit-content;
+    font-family: Minecraft;
+    color: white;
+    font-size: 18pt;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    text-shadow: 3px 3px 1px #363636dd;
+    text-align: center;
+    box-shadow:
+        /* Borda interna */
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-light-border),
+        calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-light-border),
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-light-border),
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-dark-border),
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-dark-border),
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-dark-border),
+
+        /* Borda preta */
+        calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #000000,
+        calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #000000,
+        calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #000000,
+        calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #000000;
+}
+
+.minecraft-button:hover {
+    box-shadow:
+        /* Borda interna */
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-light-border),
+        calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-light-border),
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-light-border),
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-dark-border),
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-dark-border),
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--button-dark-border),
+
+        /* Borda preta */
+        calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #ffffff,
+        calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #ffffff,
+        calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #ffffff,
+        calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #ffffff;
+}
+
 
 button {
     font-size: 21pt;

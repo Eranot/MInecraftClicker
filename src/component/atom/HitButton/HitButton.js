@@ -18,19 +18,23 @@ const HitButton = (props) => {
 
     return (
         <div className="hit-button-container">
-            <button
+
+            <div style={{ height: 8, marginTop: 5, marginBottom: 5, marginLeft: 6, marginRight: 6 }}>
+                {loadingPercentage && (
+                    <LoadingBar
+                        percentage={loadingPercentage}
+                        width={168}
+                        height={8}
+                    />
+                )}
+            </div>
+
+            <div className="minecraft-button"
                 onClick={onClick}
+                style={{ width: 150 }}
             >
                 Hit
-            </button>
-
-            {loadingPercentage && (
-                <LoadingBar
-                    percentage={loadingPercentage}
-                    width={100}
-                    height={20}
-                />
-            )}
+            </div>
         </div>
     );
 }

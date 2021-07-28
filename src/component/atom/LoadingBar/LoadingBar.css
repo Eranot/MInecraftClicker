@@ -1,11 +1,11 @@
 .background-bar {
-    background: grey;
+    /* background: grey; */
     height: 15px;
     position: relative;
 }
 
 .percentage-bar {
-    background: green;
+    background: rgb(1, 165, 1);
     height: 15px;
     position: absolute;
 }

@@ -91,7 +91,7 @@ class HitService {
 
     // Get the hit time in milliseconds
     getHitTime() {
-        return 200;
+        return 1200;
     }
 
     getLoadingPercentage() {
