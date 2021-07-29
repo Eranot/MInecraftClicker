@@ -17,6 +17,7 @@ const ItemSlot = (props) => {
                         src={"item/" + inventorySlot.item.icon + ".png"}
                         draggable="true"
                         onDragStart={(event) => onSelectItem(inventorySlot, event)}
+                        alt="Item"
                     />
 
                     <div className="quantity" style={{ display: inventorySlot.quantity === 1 ? 'none' : 'block' }}>{inventorySlot.quantity}</div>

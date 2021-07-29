@@ -20,6 +20,11 @@ html {
   margin-right: 6px;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
 @font-face {
   font-family: Minecraft;
   src: url('font/Minecraft.ttf');

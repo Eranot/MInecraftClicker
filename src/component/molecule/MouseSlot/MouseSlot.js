@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './MouseSlot.css';
 
-const CraftingTable = (props) => {
+const MouseSlot = (props) => {
 
     const { inventorySlot } = props;
 
@@ -27,6 +27,7 @@ const CraftingTable = (props) => {
                         className="item-image-mouse"
                         src={"item/" + inventorySlot.item.icon + ".png"}
                         draggable="true"
+                        alt="Mouse item"
                     />
 
                     <div className="quantity" style={{ display: inventorySlot.quantity === 1 ? 'none' : 'block' }}>{inventorySlot.quantity}</div>
@@ -36,4 +37,4 @@ const CraftingTable = (props) => {
     )
 }
 
-export default CraftingTable;
+export default MouseSlot;

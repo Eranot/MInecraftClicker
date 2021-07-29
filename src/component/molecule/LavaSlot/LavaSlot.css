@@ -1,0 +1,24 @@
+.lava-slot {
+    width: calc(var(--pixel-scale) * 36px);
+    height: calc(var(--pixel-scale) * 36px);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.lava {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    pointer-events: none;
+}

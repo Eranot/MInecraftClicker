@@ -5,17 +5,20 @@ import ItemSlot from './component/atom/ItemSlot/ItemSlot';
 import CraftingTable from './component/organism/CraftingTable/CraftingTable';
 import InventoryService from './service/InventoryService';
 import CraftingService from './service/CraftingService';
+import LavaSlot from './component/molecule/LavaSlot/LavaSlot';
 
 function App() {
 
   const [, forceUpdate] = useReducer(x => x + 1, 0);
 
   const inventoryService = InventoryService.getInstance();
+  const handInventorySlots = inventoryService.getHandInventorySlots();
   const regularInventorySlots = inventoryService.getRegularInventorySlots();
   const craftResultSlot = inventoryService.getCraftResultSlot();
   const craftingTableInventorySlots = inventoryService.getCraftingTableInventorySlots();
   const mouseSlot = inventoryService.getMouseSlot();
   const handSlot = inventoryService.getHandSlot();
+  const lavaSlot = inventoryService.getLavaSlot();
 
   useEffect(() => {
     document.addEventListener('contextmenu', function (e) {
@@ -69,26 +72,38 @@ function App() {
 
   return (
     <div className="App">
-      <CraftingTable
-        forceUpdate={forceUpdate}
-        regularInventorySlots={regularInventorySlots}
-        craftResultSlot={craftResultSlot}
-        craftingTableInventorySlots={craftingTableInventorySlots}
-        mouseSlot={mouseSlot}
-        tryToCreateItem={tryToCreateItem}
-        onSelectItem={onSelectItem}
-        onCreateItem={onCreateItem}
-      />
+      <div className="row">
+        <div className="column">
+          <CraftingTable
+            forceUpdate={forceUpdate}
+            handInventorySlots={handInventorySlots}
+            regularInventorySlots={regularInventorySlots}
+            craftResultSlot={craftResultSlot}
+            craftingTableInventorySlots={craftingTableInventorySlots}
+            mouseSlot={mouseSlot}
+            tryToCreateItem={tryToCreateItem}
+            onSelectItem={onSelectItem}
+            onCreateItem={onCreateItem}
+          />
 
-      <div className="hand-hit-button-container">
-        <ItemSlot
-          inventorySlot={handSlot}
-          onSelectItem={onSelectItem}
-        />
+          <div className="hand-hit-button-container">
+            <ItemSlot
+              inventorySlot={handSlot}
+              onSelectItem={onSelectItem}
+            />
 
-        <HitButton
-          forceUpdate={forceUpdate}
-        />
+            <HitButton
+              forceUpdate={forceUpdate}
+            />
+          </div>
+        </div>
+
+        <div style={{ marginLeft: 20 }}>
+          <LavaSlot
+            inventorySlot={lavaSlot}
+            onSelectItem={onSelectItem}
+          ></LavaSlot>
+        </div>
       </div>
     </div>
   );

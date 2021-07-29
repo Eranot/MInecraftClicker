@@ -30,7 +30,7 @@ class InventoryService {
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),
             new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
+
             // Regular inventory
             new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 1),
             new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 1),
@@ -79,26 +79,37 @@ class InventoryService {
 
             // Hand slot
             new InventorySlot(null, 0),
+
+            // Lava slot
+            new InventorySlot(null, 0),
         ]
     }
 
+    getHandInventorySlots = () => {
+        return this._inventorySlots.slice(0, 9);
+    }
+
     getRegularInventorySlots = () => {
-        return this._inventorySlots.slice(10, 37);
+        return this._inventorySlots.slice(9, 36);
     }
 
     getCraftingTableInventorySlots = () => {
-        return this._inventorySlots.slice(37, 46);
+        return this._inventorySlots.slice(36, 45);
     }
 
     getCraftResultSlot = () => {
-        return this._inventorySlots[46];
+        return this._inventorySlots[45];
     }
 
     getMouseSlot = () => {
-        return this._inventorySlots[47];
+        return this._inventorySlots[46];
     }
 
     getHandSlot = () => {
+        return this._inventorySlots[47];
+    }
+
+    getLavaSlot = () => {
         return this._inventorySlots[48];
     }
 
