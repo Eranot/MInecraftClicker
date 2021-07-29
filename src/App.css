@@ -10,6 +10,16 @@ html {
   padding: 20px;
 }
 
+.hand-hit-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.hand-hit-button-container > .item-slot {
+  margin-top: 13px;
+  margin-right: 6px;
+}
+
 @font-face {
   font-family: Minecraft;
   src: url('font/Minecraft.ttf');

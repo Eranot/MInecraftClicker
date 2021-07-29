@@ -69,29 +69,29 @@ class ItemService {
 
             // Axes
             new Item(ITEM.WOODEN_AXE, "Wooden Axe", "wooden_axe", [
-                [ITEM.OAK_PLANKS, ITEM.OAK_PLANKS, null],
-                [ITEM.OAK_PLANKS, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.OAK_PLANKS, ITEM.OAK_PLANKS],
+                [ITEM.OAK_PLANKS, ITEM.STICK],
+                [null, ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.STONE_AXE, "Stone Axe", "stone_axe", [
-                [ITEM.COBBLESTONE, ITEM.COBBLESTONE, null],
-                [ITEM.COBBLESTONE, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.COBBLESTONE, ITEM.COBBLESTONE],
+                [ITEM.COBBLESTONE, ITEM.STICK],
+                [null, ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.IRON_AXE, "Iron Axe", "iron_axe", [
-                [ITEM.IRON_INGOT, ITEM.IRON_INGOT, null],
-                [ITEM.IRON_INGOT, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.IRON_INGOT, ITEM.IRON_INGOT],
+                [ITEM.IRON_INGOT, ITEM.STICK],
+                [null, ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.GOLDEN_AXE, "Golden Axe", "golden_axe", [
-                [ITEM.GOLD_INGOT, ITEM.GOLD_INGOT, null],
-                [ITEM.GOLD_INGOT, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.GOLD_INGOT, ITEM.GOLD_INGOT],
+                [ITEM.GOLD_INGOT, ITEM.STICK],
+                [null, ITEM.STICK],
             ], 1, 1),
             new Item(ITEM.DIAMOND_AXE, "Diamond Axe", "diamond_axe", [
-                [ITEM.DIAMOND, ITEM.DIAMOND, null],
-                [ITEM.DIAMOND, ITEM.STICK, null],
-                [null, ITEM.STICK, null],
+                [ITEM.DIAMOND, ITEM.DIAMOND],
+                [ITEM.DIAMOND, ITEM.STICK],
+                [null, ITEM.STICK],
             ], 1, 1),
 
             // Hoes

@@ -19,12 +19,12 @@ const HitButton = (props) => {
     return (
         <div className="hit-button-container">
 
-            <div style={{ height: 8, marginTop: 5, marginBottom: 5, marginLeft: 6, marginRight: 6 }}>
+            <div style={{ height: 5, marginTop: 5, marginBottom: 5, marginLeft: 6, marginRight: 6 }}>
                 {loadingPercentage && (
                     <LoadingBar
                         percentage={loadingPercentage}
                         width={168}
-                        height={8}
+                        height={5}
                     />
                 )}
             </div>

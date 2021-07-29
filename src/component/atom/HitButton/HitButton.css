@@ -5,7 +5,6 @@
 }
 
 .hit-button-container {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
 }
@@ -15,7 +14,7 @@
     padding: 8px 8px 5px 8px;
     background: #6d6d6d;
     transform-origin: top left;
-    width: fit-content;
+    height: calc(var(--pixel-scale) * 18px - (var(--pixel-scale) * 8px));
     font-family: Minecraft;
     color: white;
     font-size: 18pt;

@@ -40,7 +40,9 @@ class HitService {
             }, 10)
 
             setTimeout(() => {
-                const item = this.getRandomItem();
+                const inventoryService = InventoryService.getInstance();
+                const equipedItem = inventoryService.getHandSlot();
+                const item = this.getRandomItem(equipedItem.item?.id);
                 const slot = this.inventoryService.getFirstAvailableSlot(item);
 
                 if (!slot) {
@@ -69,7 +71,6 @@ class HitService {
     }
 
     getRandomItem(equipedItemId) {
-
         let itemId = null;
 
         switch (equipedItemId) {
@@ -80,9 +81,11 @@ class HitService {
             case ITEM.DIAMOND_PICKAXE:
                 let pickaxeService = new PickaxeService();
                 itemId = pickaxeService.getRandomItem(equipedItemId);
+                break;
             default:
                 let handService = new HandService();
                 itemId = handService.getRandomItem(equipedItemId);
+                break;
 
         }
 

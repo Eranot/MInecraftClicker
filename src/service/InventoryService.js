@@ -76,6 +76,9 @@ class InventoryService {
 
             // Mouse slot
             new InventorySlot(null, 0),
+
+            // Hand slot
+            new InventorySlot(null, 0),
         ]
     }
 
@@ -93,6 +96,10 @@ class InventoryService {
 
     getMouseSlot = () => {
         return this._inventorySlots[47];
+    }
+
+    getHandSlot = () => {
+        return this._inventorySlots[48];
     }
 
     moveItem(from, to) {
