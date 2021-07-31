@@ -25,7 +25,7 @@ const MouseSlot = (props) => {
                 <>
                     <img
                         className="item-image-mouse"
-                        src={"item/" + inventorySlot.item.icon + ".png"}
+                        src={inventorySlot.item.icon + ".png"}
                         draggable="true"
                         alt="Mouse item"
                     />

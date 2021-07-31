@@ -9,8 +9,9 @@ class PickaxeService extends ToolService {
         switch (equipedItemId) {
             case ITEM.WOODEN_PICKAXE:
                 options = [
-                    { id: ITEM.COBBLESTONE, chance: 50 },
-                    { id: ITEM.COAL, chance: 50 },
+                    { id: ITEM.COBBLESTONE, chance: 60 },
+                    { id: ITEM.COAL, chance: 25 },
+                    { id: ITEM.IRON_ORE, chance: 15 },
                 ];
                 break;
             case ITEM.STONE_PICKAXE:

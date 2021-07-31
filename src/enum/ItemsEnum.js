@@ -8,6 +8,11 @@ const ITEM = {
     GOLD_INGOT: 'GOLD_INGOT',
     GOLD_ORE: 'GOLD_ORE',
     DIAMOND: 'DIAMOND',
+
+    APPLE: 'APPLE',
+    SUGAR_CANE: 'SUGAR_CANE',
+    EGG: 'EGG',
+
     STICK: 'STICK',
     FLINT: 'FLINT',
 

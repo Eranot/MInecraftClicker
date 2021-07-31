@@ -14,7 +14,7 @@ const ItemSlot = (props) => {
                 <>
                     <img
                         className="item-image"
-                        src={"item/" + inventorySlot.item.icon + ".png"}
+                        src={inventorySlot.item.icon + ".png"}
                         draggable="true"
                         onDragStart={(event) => onSelectItem(inventorySlot, event)}
                         alt="Item"

@@ -11,7 +11,7 @@
 
 .minecraft-button {
     margin: calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 2px);
-    padding: 8px 8px 5px 8px;
+    padding: 10px 8px 3px 8px;
     background: #6d6d6d;
     transform-origin: top left;
     height: calc(var(--pixel-scale) * 18px - (var(--pixel-scale) * 8px));
