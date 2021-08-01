@@ -145,7 +145,7 @@ class ItemService {
             new Item(ITEM.STICK, "Stick", "item/stick", [[ITEM.OAK_PLANKS], [ITEM.OAK_PLANKS]], 4),
             new Item(ITEM.FLINT, "Flint", "item/flint", []),
             new Item(ITEM.COAL, "Coal", "item/coal", []),
-            new Item(ITEM.TORCH, "Torch", "item/torch", [[ITEM.COAL], [ITEM.STICK]], 4),
+            new Item(ITEM.TORCH, "Torch", "block/torch", [[ITEM.COAL], [ITEM.STICK]], 4),
             new Item(ITEM.FLINT_AND_STEEL, "Flint and steel", "item/flint_and_steel", [
                 [ITEM.IRON_INGOT, ITEM.FLINT],
             ], 1),

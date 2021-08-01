@@ -4,7 +4,6 @@
     --item-dark-border: #383838;
 }
 
-
 .item-slot {
     width: calc(var(--pixel-scale) * 18px);
     height: calc(var(--pixel-scale) * 18px);
@@ -26,6 +25,21 @@
     height: 90%;
     image-rendering: pixelated;
     transform: translate(0, 0);
+}
+
+.hover-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* pointer-events: none; */
+}
+
+.hover-container:active {
+	pointer-events: none;
+}
+
+.hover-container:hover {
+    background: #ffffff55;
 }
 
 .quantity {

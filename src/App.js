@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import './App.css';
 import HitButton from './component/atom/HitButton/HitButton';
 import ItemSlot from './component/atom/ItemSlot/ItemSlot';
@@ -6,10 +6,12 @@ import CraftingTable from './component/organism/CraftingTable/CraftingTable';
 import InventoryService from './service/InventoryService';
 import CraftingService from './service/CraftingService';
 import LavaSlot from './component/molecule/LavaSlot/LavaSlot';
+import ItemTooltip from '../src/component/molecule/ItemTooltip/ItemTooltip';
 
 function App() {
 
   const [, forceUpdate] = useReducer(x => x + 1, 0);
+  const [hoveredItem, setHoveredItem] = useState(null);
 
   const inventoryService = InventoryService.getInstance();
   const handInventorySlots = inventoryService.getHandInventorySlots();
@@ -33,6 +35,8 @@ function App() {
   }
 
   const onSelectItem = async (inventorySlot, event) => {
+    setHoveredItem(null);
+
     const craftingService = new CraftingService();
 
     // If it is a ghost item, make it real
@@ -70,6 +74,14 @@ function App() {
     }
   }
 
+  const _setHoveredItem = (item) => {
+    if (mouseSlot.item) {
+      setHoveredItem(null);
+    } else {
+      setHoveredItem(item);
+    }
+  }
+
   return (
     <div className="App">
       <div className="row">
@@ -84,12 +96,14 @@ function App() {
             tryToCreateItem={tryToCreateItem}
             onSelectItem={onSelectItem}
             onCreateItem={onCreateItem}
+            setHoveredItem={_setHoveredItem}
           />
 
           <div className="hand-hit-button-container">
             <ItemSlot
               inventorySlot={handSlot}
               onSelectItem={onSelectItem}
+              setHoveredItem={_setHoveredItem}
             />
 
             <HitButton
@@ -102,9 +116,14 @@ function App() {
           <LavaSlot
             inventorySlot={lavaSlot}
             onSelectItem={onSelectItem}
+            setHoveredItem={_setHoveredItem}
           ></LavaSlot>
         </div>
       </div>
+
+      <ItemTooltip
+        hoveredItem={hoveredItem}
+      />
     </div>
   );
 }

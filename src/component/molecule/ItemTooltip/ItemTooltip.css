@@ -1,0 +1,33 @@
+.item-tooltip-container {
+    padding: 10px 10px 4px 10px;
+    background: #130813;
+    transform-origin: top left;
+    width: fit-content;
+    box-shadow:
+        /* primeira borda */
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #5a1cb8,
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #5a1cb8,
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #5a1cb8,
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #5a1cb8,
+
+        /* segunda borda */
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #130813,
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #130813,
+
+        calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #130813,
+        calc(var(--pixel-scale) * -2px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #130813,
+
+        calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #130813,
+        calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #130813,
+
+        calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #130813,
+        calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #130813;
+
+}
+
+.item-tooltip-text {
+    color: white;
+    font-family: Minecraft;
+    text-shadow: 2px 2px 0px #3e3e3e;
+    font-size: 20pt;
+}

@@ -3,12 +3,26 @@ import './ItemSlot.css';
 
 const ItemSlot = (props) => {
 
-    const { inventorySlot, onSelectItem } = props;
+    const { inventorySlot, onSelectItem, setHoveredItem } = props;
+
+    const onHoverItem = () => {
+        if (inventorySlot.item && setHoveredItem) {
+            setHoveredItem(inventorySlot.item);
+        }
+    }
+
+    const onNotHoverItem = () => {
+        if (inventorySlot.item && setHoveredItem) {
+            setHoveredItem(null);
+        }
+    }
 
     return (
         <div
             className="item-slot"
             onMouseUp={(event) => onSelectItem(inventorySlot, event)}
+            onMouseOver={onHoverItem}
+            onMouseLeave={onNotHoverItem}
         >
             {inventorySlot?.item && (
                 <>
@@ -21,8 +35,11 @@ const ItemSlot = (props) => {
                     />
 
                     <div className="quantity" style={{ display: inventorySlot.quantity === 1 ? 'none' : 'block' }}>{inventorySlot.quantity}</div>
+
                 </>
             )}
+
+            <div className="hover-container"></div>
         </div>
     )
 }

@@ -8,7 +8,8 @@ const LavaSlot = (props) => {
 
     const {
         inventorySlot: lavaInventorySlot,
-        onSelectItem
+        onSelectItem,
+        setHoveredItem
     } = props;
 
     const [loadingPercentage, setLoadingPercentage] = useState(null);
@@ -42,6 +43,7 @@ const LavaSlot = (props) => {
                 <ItemSlot
                     inventorySlot={lavaInventorySlot}
                     onSelectItem={onSelectItem}
+                    setHoveredItem={setHoveredItem}
                 />
             </div>
         </div>

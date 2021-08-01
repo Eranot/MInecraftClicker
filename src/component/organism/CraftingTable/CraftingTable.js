@@ -15,6 +15,7 @@ const CraftingTable = (props) => {
         craftingTableInventorySlots,
         mouseSlot,
         onSelectItem,
+        setHoveredItem
     } = props;
 
     return (
@@ -28,12 +29,14 @@ const CraftingTable = (props) => {
                         rows={3}
                         inventorySlots={craftingTableInventorySlots}
                         onSelectItem={onSelectItem}
+                        setHoveredItem={setHoveredItem}
                     />
                 </div>
 
                 <CraftResultSlot
                     inventorySlot={craftResultSlot}
                     onSelectItem={onSelectItem}
+                    setHoveredItem={setHoveredItem}
                 />
 
             </div>
@@ -43,6 +46,7 @@ const CraftingTable = (props) => {
                         key={index}
                         inventorySlot={inventorySlot}
                         onSelectItem={onSelectItem}
+                        setHoveredItem={setHoveredItem}
                     ></ItemSlot>)
                 }
             </div>
@@ -53,6 +57,7 @@ const CraftingTable = (props) => {
                         key={index}
                         inventorySlot={inventorySlot}
                         onSelectItem={onSelectItem}
+                        setHoveredItem={setHoveredItem}
                     ></ItemSlot>)
                 }
             </div>
