@@ -72,7 +72,7 @@ class InventoryService {
             new InventorySlot(null, 0),
 
             // Crafting table result slot
-            new InventorySlot(null, 0),
+            new InventorySlot(null, 0, true),
 
             // Mouse slot
             new InventorySlot(null, 0),
@@ -114,6 +114,12 @@ class InventoryService {
     }
 
     moveItem(from, to) {
+
+        // Verifies if the result slot is receiveing an item
+        if ((to.isCraftResult && from.item) || (from.isCraftResult && to.item)) {
+            return;
+        }
+
         let indexTo = this._inventorySlots.indexOf(to);
         let indexFrom = this._inventorySlots.indexOf(from);
 
@@ -129,11 +135,23 @@ class InventoryService {
             }
         }
 
-        this._inventorySlots[indexTo] = from;
-        this._inventorySlots[indexFrom] = to;
+        // Makes the move
+        const auxItem = from.item;
+        const auxQuantity = from.quantity;
+
+        from.item = to.item;
+        from.quantity = to.quantity;
+
+        to.item = auxItem;
+        to.quantity = auxQuantity;
     }
 
     sendItemTo(from, to, quantity) {
+
+        // Verifies if the result slot is receiveing an item
+        if ((to.isCraftResult && from.item) || (from.isCraftResult && to.item)) {
+            return;
+        }
 
         if (from.quantity < quantity) {
             return;

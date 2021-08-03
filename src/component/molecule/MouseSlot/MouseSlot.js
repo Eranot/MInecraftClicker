@@ -20,20 +20,22 @@ const MouseSlot = (props) => {
     }, []);
 
     return (
-        <div className="item-slot-mouse" style={{ position: 'absolute', left: mouseX, top: mouseY }}>
+        <>
             {inventorySlot?.item && (
-                <>
-                    <img
-                        className="item-image-mouse"
-                        src={inventorySlot.item.icon + ".png"}
-                        draggable="true"
-                        alt="Mouse item"
-                    />
+                <div className="item-slot-mouse" style={{ position: 'absolute', left: mouseX, top: mouseY }}>
+                    <>
+                        <img
+                            className="item-image-mouse"
+                            src={inventorySlot.item.icon + ".png"}
+                            draggable="true"
+                            alt="Mouse item"
+                        />
 
-                    <div className="quantity" style={{ display: inventorySlot.quantity === 1 ? 'none' : 'block' }}>{inventorySlot.quantity}</div>
-                </>
+                        <div className="quantity" style={{ display: inventorySlot.quantity === 1 ? 'none' : 'block' }}>{inventorySlot.quantity}</div>
+                    </>
+                </div>
             )}
-        </div>
+        </>
     )
 }
 

@@ -22,7 +22,7 @@ const CraftingTable = (props) => {
         <div className="painel">
             <div className="row">
                 <div
-                    style={{ marginRight: 18 }}
+                    style={{ marginRight: 28 }}
                 >
                     <CraftingSpace
                         columns={3}

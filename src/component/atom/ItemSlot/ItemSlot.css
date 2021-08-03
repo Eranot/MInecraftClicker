@@ -8,16 +8,25 @@
     width: calc(var(--pixel-scale) * 18px);
     height: calc(var(--pixel-scale) * 18px);
     background: #8b8b8b;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 
     box-shadow:
         /* Esquerda */
         inset calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--item-dark-border),
         inset calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--item-light-border),
         inset calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--item-gray-border);
+}
+
+.item-slot > div {
+    width: calc(var(--pixel-scale) * 18px);
+    height: calc(var(--pixel-scale) * 18px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .item-image {

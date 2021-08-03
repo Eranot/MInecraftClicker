@@ -12,6 +12,8 @@ const CraftResultSlot = (props) => {
             inventorySlot={inventorySlot}
             onSelectItem={onSelectItem}
             setHoveredItem={setHoveredItem}
+            width={75}
+            height={75}
         />
     )
 }
