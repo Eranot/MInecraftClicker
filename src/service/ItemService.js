@@ -18,81 +18,81 @@ class ItemService {
                 [ITEM.OAK_PLANKS, ITEM.OAK_PLANKS, ITEM.OAK_PLANKS],
                 [null, ITEM.STICK, null],
                 [null, ITEM.STICK, null],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.STONE_PICKAXE, "Stone Pickaxe", "item/stone_pickaxe", [
                 [ITEM.COBBLESTONE, ITEM.COBBLESTONE, ITEM.COBBLESTONE],
                 [null, ITEM.STICK, null],
                 [null, ITEM.STICK, null],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.IRON_PICKAXE, "Iron Pickaxe", "item/iron_pickaxe", [
                 [ITEM.IRON_INGOT, ITEM.IRON_INGOT, ITEM.IRON_INGOT],
                 [null, ITEM.STICK, null],
                 [null, ITEM.STICK, null],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.GOLDEN_PICKAXE, "Golden Pickaxe", "item/golden_pickaxe", [
                 [ITEM.GOLD_INGOT, ITEM.GOLD_INGOT, ITEM.GOLD_INGOT],
                 [null, ITEM.STICK, null],
                 [null, ITEM.STICK, null],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.DIAMOND_PICKAXE, "Diamond Pickaxe", "item/diamond_pickaxe", [
                 [ITEM.DIAMOND, ITEM.DIAMOND, ITEM.DIAMOND],
                 [null, ITEM.STICK, null],
                 [null, ITEM.STICK, null],
-            ], 1, 1),
+            ], 1, 1, true),
 
             // Shovels
             new Item(ITEM.WOODEN_SHOVEL, "Wooden Shovel", "item/wooden_shovel", [
                 [ITEM.OAK_PLANKS],
                 [ITEM.STICK],
                 [ITEM.STICK],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.STONE_SHOVEL, "Stone Shovel", "item/stone_shovel", [
                 [ITEM.COBBLESTONE],
                 [ITEM.STICK],
                 [ITEM.STICK],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.IRON_SHOVEL, "Iron Shovel", "item/iron_shovel", [
                 [ITEM.IRON_INGOT],
                 [ITEM.STICK],
                 [ITEM.STICK],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.GOLDEN_SHOVEL, "Golden Shovel", "item/golden_shovel", [
                 [ITEM.GOLD_INGOT],
                 [ITEM.STICK],
                 [ITEM.STICK],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.DIAMOND_SHOVEL, "Diamond Shovel", "item/diamond_shovel", [
                 [ITEM.DIAMOND],
                 [ITEM.STICK],
                 [ITEM.STICK],
-            ], 1, 1),
+            ], 1, 1, true),
 
             // Axes
             new Item(ITEM.WOODEN_AXE, "Wooden Axe", "item/wooden_axe", [
                 [ITEM.OAK_PLANKS, ITEM.OAK_PLANKS],
                 [ITEM.OAK_PLANKS, ITEM.STICK],
                 [null, ITEM.STICK],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.STONE_AXE, "Stone Axe", "item/stone_axe", [
                 [ITEM.COBBLESTONE, ITEM.COBBLESTONE],
                 [ITEM.COBBLESTONE, ITEM.STICK],
                 [null, ITEM.STICK],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.IRON_AXE, "Iron Axe", "item/iron_axe", [
                 [ITEM.IRON_INGOT, ITEM.IRON_INGOT],
                 [ITEM.IRON_INGOT, ITEM.STICK],
                 [null, ITEM.STICK],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.GOLDEN_AXE, "Golden Axe", "item/golden_axe", [
                 [ITEM.GOLD_INGOT, ITEM.GOLD_INGOT],
                 [ITEM.GOLD_INGOT, ITEM.STICK],
                 [null, ITEM.STICK],
-            ], 1, 1),
+            ], 1, 1, true),
             new Item(ITEM.DIAMOND_AXE, "Diamond Axe", "item/diamond_axe", [
                 [ITEM.DIAMOND, ITEM.DIAMOND],
                 [ITEM.DIAMOND, ITEM.STICK],
                 [null, ITEM.STICK],
-            ], 1, 1),
+            ], 1, 1, true),
 
             // Hoes
             new Item(ITEM.WOODEN_HOE, "Wooden Hoe", "item/wooden_hoe", [

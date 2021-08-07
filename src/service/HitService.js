@@ -23,8 +23,12 @@ class HitService {
         this.itemService = new ItemService();
     }
 
-    hit(setLoadingPercentageCallback) {
+    hit(setLoadingPercentageCallback, equipedSlot) {
         return new Promise((resolve) => {
+
+            // Original equiped item. If the item changes, the hit is canceled
+            const originalEquipedItemId = equipedSlot?.item?.id;
+
             if (this.waitingUntil) {
                 resolve();
                 return;
@@ -35,29 +39,40 @@ class HitService {
             this.waitingUntil = moment().add(hitTime, 'millisecond');
 
             const intervalId = setInterval(() => {
+
+                if (originalEquipedItemId !== equipedSlot?.item?.id) {
+                    // Cancels the hit
+                    setLoadingPercentageCallback(null, true);
+                    clearInterval(intervalId);
+                    if (this.timeoutId) {
+                        console.log(this.timeoutId);
+                        clearTimeout(this.timeoutId);
+                        this.timeoutId = null;
+                    }
+                    this.waitingUntil = null;
+                    resolve(true);
+                    return;
+                }
+
                 const percentage = this.getLoadingPercentage();
                 setLoadingPercentageCallback(percentage);
             }, 10)
 
-            setTimeout(() => {
-                const inventoryService = InventoryService.getInstance();
-                const equipedItem = inventoryService.getHandSlot();
-                const item = this.getRandomItem(equipedItem.item?.id);
-                const slot = this.inventoryService.getFirstAvailableSlot(item);
-
-                if (!slot) {
-                    this.waitingUntil = null;
-                    clearInterval(intervalId);
-                    setLoadingPercentageCallback(null);
-                    resolve();
+            this.timeoutId = setTimeout(() => {
+                if (!this.timeoutId) {
                     return;
                 }
 
-                if (!slot.item) {
-                    slot.item = item;
-                    slot.quantity = 1;
-                } else {
-                    slot.quantity += 1;
+                const item = this.getRandomItem(equipedSlot?.item?.id);
+                const slot = this.inventoryService.getFirstAvailableSlot(item);
+
+                if (slot) {
+                    if (!slot.item) {
+                        slot.item = item;
+                        slot.quantity = 1;
+                    } else {
+                        slot.quantity += 1;
+                    }
                 }
 
                 this.waitingUntil = null;
@@ -65,8 +80,6 @@ class HitService {
                 setLoadingPercentageCallback(null);
                 resolve();
             }, hitTime);
-
-
         })
     }
 

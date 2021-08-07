@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './HitButton.css';
 import HitService from '../../../service/HitService';
 import LoadingBar from '../LoadingBar/LoadingBar';
+import InventoryService from '../../../service/InventoryService';
 
 const HitButton = (props) => {
 
@@ -12,7 +13,9 @@ const HitButton = (props) => {
     const hitService = HitService.getInstance();
 
     const onClick = async () => {
-        await hitService.hit(setLoadingPercentage);
+        const inventoryService = InventoryService.getInstance();
+        const equipedSlot = inventoryService.getHandSlot();
+        await hitService.hit(setLoadingPercentage, equipedSlot);
         forceUpdate();
     }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingBar from '../LoadingBar/LoadingBar';
 import './ItemSlot.css';
 
 const ItemSlot = (props) => {
@@ -17,16 +18,35 @@ const ItemSlot = (props) => {
         }
     }
 
+    const backgroundColor = inventorySlot?.isAutoClick ? '#7d9e73' : null;
+
     return (
         <div
             className="item-slot"
             onMouseUp={(event) => onSelectItem(inventorySlot, event)}
             onMouseOver={onHoverItem}
             onMouseLeave={onNotHoverItem}
-            style={{ width: width, height: height }}
+            style={{ width: width, height: height, backgroundColor: backgroundColor }}
         >
 
             <div>
+                {inventorySlot?.isAutoClick && !inventorySlot?.item && (
+                    <div className="auto-click-background">
+                        <img src="autoclick.png"></img>
+                    </div>
+                )}
+
+                {inventorySlot?.isAutoClick && inventorySlot?.hitLoading && (
+                    <div className="hit-loading-container">
+                        <LoadingBar
+                            percentage={inventorySlot.hitLoading}
+                            width={48}
+                            height={5}
+                            color={"green"}
+                        />
+                    </div>
+                )}
+
                 {inventorySlot?.item && (
                     <>
                         <img

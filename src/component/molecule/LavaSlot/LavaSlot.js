@@ -19,7 +19,7 @@ const LavaSlot = (props) => {
             const lavaService = LavaService.getInstance();
             lavaService.destroyItem(setLoadingPercentage);
         }
-    }, [lavaInventorySlot]);
+    }, [lavaInventorySlot.item]);
 
     return (
         <div className="lava-slot">

@@ -7,6 +7,7 @@ import InventoryService from './service/InventoryService';
 import CraftingService from './service/CraftingService';
 import LavaSlot from './component/molecule/LavaSlot/LavaSlot';
 import ItemTooltip from '../src/component/molecule/ItemTooltip/ItemTooltip';
+import AutoClickService from './service/AutoClickService';
 
 function App() {
 
@@ -54,6 +55,16 @@ function App() {
       } else {
         inventoryService.sendItemTo(inventorySlot, mouseSlot, Math.floor(inventorySlot.quantity / 2));
       }
+    }
+
+    // Auto click if needed
+    if (inventorySlot.isAutoClick) {
+      AutoClickService.getInstance().startAutoClick(inventorySlot, (value) => {
+        inventorySlot.hitLoading = value;
+        forceUpdate();
+      }, async () => {
+        await forceUpdate();
+      });
     }
 
     await forceUpdate();

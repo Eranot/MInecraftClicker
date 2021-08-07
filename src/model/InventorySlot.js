@@ -1,6 +1,7 @@
 class InventorySlot {
 
-    constructor(item, quantity, isCraftResult = null) {
+    constructor(id, item, quantity = 0, isCraftResult = false, isAutoClick = false) {
+        this.id = id;
         this.item = item;
         this.quantity = quantity;
 
@@ -8,7 +9,9 @@ class InventorySlot {
            only a crafting result not yet created */
         this.ghost = false;
 
-        this.isCraftResult = isCraftResult ?? false;
+        this.isCraftResult = isCraftResult;
+        this.isAutoClick = isAutoClick;
+        this.hitLoading = null;
     }
 }
 

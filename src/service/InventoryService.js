@@ -21,67 +21,67 @@ class InventoryService {
 
         this._inventorySlots = [
             // Hand inventory
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
+            new InventorySlot(0, null, 0, false, true),
+            new InventorySlot(1, null, 0, false, true),
+            new InventorySlot(2, null, 0, false, true),
+            new InventorySlot(3),
+            new InventorySlot(4),
+            new InventorySlot(5),
+            new InventorySlot(6),
+            new InventorySlot(7),
+            new InventorySlot(8),
 
             // Regular inventory
-            new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 1),
-            new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 1),
-            new InventorySlot(itemService.getItemById(ITEM.IRON_INGOT), 2),
-            new InventorySlot(itemService.getItemById(ITEM.STICK), 63),
-            new InventorySlot(itemService.getItemById(ITEM.STICK), 2),
-            new InventorySlot(itemService.getItemById(ITEM.FLINT), 2),
-            new InventorySlot(itemService.getItemById(ITEM.COAL), 64, 0),
-            new InventorySlot(itemService.getItemById(ITEM.OAK_LOG), 64),
-            new InventorySlot(itemService.getItemById(ITEM.GOLD_INGOT), 64),
-            new InventorySlot(itemService.getItemById(ITEM.DIAMOND), 64),
-            new InventorySlot(itemService.getItemById(ITEM.COBBLESTONE), 64),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
+            new InventorySlot(9, itemService.getItemById(ITEM.WOODEN_PICKAXE), 1),
+            new InventorySlot(10, itemService.getItemById(ITEM.IRON_INGOT), 1),
+            new InventorySlot(11, itemService.getItemById(ITEM.IRON_INGOT), 2),
+            new InventorySlot(12, itemService.getItemById(ITEM.STICK), 63),
+            new InventorySlot(13, itemService.getItemById(ITEM.STICK), 2),
+            new InventorySlot(14, itemService.getItemById(ITEM.FLINT), 2),
+            new InventorySlot(15, itemService.getItemById(ITEM.COAL), 64, 0),
+            new InventorySlot(16, itemService.getItemById(ITEM.OAK_LOG), 64),
+            new InventorySlot(17, itemService.getItemById(ITEM.GOLD_INGOT), 64),
+            new InventorySlot(18, itemService.getItemById(ITEM.DIAMOND), 64),
+            new InventorySlot(19, itemService.getItemById(ITEM.COBBLESTONE), 64),
+            new InventorySlot(20, itemService.getItemById(ITEM.WOODEN_PICKAXE), 1),
+            new InventorySlot(21, itemService.getItemById(ITEM.WOODEN_PICKAXE), 1),
+            new InventorySlot(22),
+            new InventorySlot(23),
+            new InventorySlot(24),
+            new InventorySlot(25),
+            new InventorySlot(26),
+            new InventorySlot(27),
+            new InventorySlot(28),
+            new InventorySlot(29),
+            new InventorySlot(30),
+            new InventorySlot(31),
+            new InventorySlot(32),
+            new InventorySlot(33),
+            new InventorySlot(34),
+            new InventorySlot(35),
 
             // Crafting table
-            new InventorySlot(itemService.getItemById(ITEM.COAL), 60),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(itemService.getItemById(ITEM.STICK), 10),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
-            new InventorySlot(null, 0),
+            new InventorySlot(36),
+            new InventorySlot(37),
+            new InventorySlot(38),
+            new InventorySlot(39),
+            new InventorySlot(40),
+            new InventorySlot(41),
+            new InventorySlot(42),
+            new InventorySlot(43),
+            new InventorySlot(44),
 
             // Crafting table result slot
-            new InventorySlot(null, 0, true),
+            new InventorySlot(45, null, 0, true),
 
             // Mouse slot
-            new InventorySlot(null, 0),
+            new InventorySlot(46),
 
             // Hand slot
-            new InventorySlot(null, 0),
+            new InventorySlot(47),
 
             // Lava slot
-            new InventorySlot(null, 0),
+            new InventorySlot(48),
         ]
     }
 
@@ -119,9 +119,6 @@ class InventoryService {
         if ((to.isCraftResult && from.item) || (from.isCraftResult && to.item)) {
             return;
         }
-
-        let indexTo = this._inventorySlots.indexOf(to);
-        let indexFrom = this._inventorySlots.indexOf(from);
 
         // If the items are the same, we want to stack them
         if (from.item && to.item && from.item.id === to.item.id) {
@@ -186,15 +183,30 @@ class InventoryService {
             return null;
         }
 
-        const slots = this.getRegularInventorySlots();
+        const regularSlots = this.getRegularInventorySlots();
+        const handSlots = this.getHandInventorySlots();
 
-        for (let slot of slots) {
+        // First tries to stack
+        for (let slot of regularSlots) {
             if (slot.item && slot.item.id === item.id && slot.quantity < item.maxStack) {
                 return slot;
             }
         }
 
-        for (let slot of slots) {
+        for (let slot of handSlots) {
+            if (slot.item && slot.item.id === item.id && slot.quantity < item.maxStack) {
+                return slot;
+            }
+        }
+
+        // Empty slots 
+        for (let slot of regularSlots) {
+            if (!slot.item) {
+                return slot;
+            }
+        }
+
+        for (let slot of handSlots) {
             if (!slot.item) {
                 return slot;
             }
