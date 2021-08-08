@@ -12,6 +12,7 @@ class ItemService {
             new Item(ITEM.IRON_INGOT, "Iron Ingot", "item/iron_ingot", []),
             new Item(ITEM.GOLD_INGOT, "Gold Ingot", "item/gold_ingot", []),
             new Item(ITEM.DIAMOND, "Diamond", "item/diamond", []),
+            new Item(ITEM.OBSIDIAN, "Obsidian", "block/obsidian", []),
 
             // Pickaxes
             new Item(ITEM.WOODEN_PICKAXE, "Wooden Pickaxe", "item/wooden_pickaxe", [
@@ -145,6 +146,7 @@ class ItemService {
             new Item(ITEM.STICK, "Stick", "item/stick", [[ITEM.OAK_PLANKS], [ITEM.OAK_PLANKS]], 4),
             new Item(ITEM.FLINT, "Flint", "item/flint", []),
             new Item(ITEM.COAL, "Coal", "item/coal", []),
+            new Item(ITEM.REDSTONE, "Redstone", "item/redstone", []),
             new Item(ITEM.TORCH, "Torch", "block/torch", [[ITEM.COAL], [ITEM.STICK]], 4),
             new Item(ITEM.FLINT_AND_STEEL, "Flint and steel", "item/flint_and_steel", [
                 [ITEM.IRON_INGOT, ITEM.FLINT],

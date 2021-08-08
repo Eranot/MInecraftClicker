@@ -33,10 +33,10 @@ class InventoryService {
 
             // Regular inventory
             new InventorySlot(9, itemService.getItemById(ITEM.WOODEN_PICKAXE), 1),
-            new InventorySlot(10, itemService.getItemById(ITEM.IRON_INGOT), 1),
-            new InventorySlot(11, itemService.getItemById(ITEM.IRON_INGOT), 2),
-            new InventorySlot(12, itemService.getItemById(ITEM.STICK), 63),
-            new InventorySlot(13, itemService.getItemById(ITEM.STICK), 2),
+            new InventorySlot(10, itemService.getItemById(ITEM.STONE_PICKAXE), 1),
+            new InventorySlot(11, itemService.getItemById(ITEM.IRON_PICKAXE), 1),
+            new InventorySlot(12, itemService.getItemById(ITEM.GOLDEN_PICKAXE), 1),
+            new InventorySlot(13, itemService.getItemById(ITEM.DIAMOND_PICKAXE), 1),
             new InventorySlot(14, itemService.getItemById(ITEM.FLINT), 2),
             new InventorySlot(15, itemService.getItemById(ITEM.COAL), 64, 0),
             new InventorySlot(16, itemService.getItemById(ITEM.OAK_LOG), 64),

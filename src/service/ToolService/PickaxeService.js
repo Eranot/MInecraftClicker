@@ -9,39 +9,47 @@ class PickaxeService extends ToolService {
         switch (equipedItemId) {
             case ITEM.WOODEN_PICKAXE:
                 options = [
-                    { id: ITEM.COBBLESTONE, chance: 60 },
-                    { id: ITEM.COAL, chance: 25 },
-                    { id: ITEM.IRON_ORE, chance: 15 },
+                    { id: ITEM.COBBLESTONE, chance: 90 },
+                    { id: ITEM.COAL, chance: 10 },
                 ];
                 break;
             case ITEM.STONE_PICKAXE:
                 options = [
-                    { id: ITEM.COBBLESTONE, chance: 50 },
-                    { id: ITEM.COAL, chance: 50 },
+                    { id: ITEM.COBBLESTONE, chance: 90 },
+                    { id: ITEM.COAL, chance: 10 },
+                    { id: ITEM.IRON_ORE, chance: 6 },
+                    { id: ITEM.GOLD_ORE, chance: 3 },
+                    { id: ITEM.REDSTONE, chance: 3 },
                 ];
                 break;
             case ITEM.IRON_PICKAXE:
                 options = [
-                    { id: ITEM.COBBLESTONE, chance: 50 },
-                    { id: ITEM.COAL, chance: 50 },
+                    { id: ITEM.COBBLESTONE, chance: 90 },
+                    { id: ITEM.COAL, chance: 10 },
+                    { id: ITEM.IRON_ORE, chance: 6 },
+                    { id: ITEM.GOLD_ORE, chance: 3 },
+                    { id: ITEM.REDSTONE, chance: 3 },
+                    { id: ITEM.DIAMOND, chance: 1 },
                 ];
                 break;
             case ITEM.GOLDEN_PICKAXE:
                 options = [
-                    { id: ITEM.COBBLESTONE, chance: 50 },
-                    { id: ITEM.COAL, chance: 50 },
+                    { id: ITEM.COBBLESTONE, chance: 90 },
+                    { id: ITEM.COAL, chance: 10 },
+                    { id: ITEM.IRON_ORE, chance: 6 },
+                    { id: ITEM.GOLD_ORE, chance: 3 },
+                    { id: ITEM.REDSTONE, chance: 3 },
                 ];
                 break;
             case ITEM.DIAMOND_PICKAXE:
                 options = [
-                    { id: ITEM.COBBLESTONE, chance: 50 },
-                    { id: ITEM.COAL, chance: 50 },
-                ];
-                break;
-            default:
-                options = [
-                    { id: ITEM.COBBLESTONE, chance: 50 },
-                    { id: ITEM.COAL, chance: 50 },
+                    { id: ITEM.COBBLESTONE, chance: 90 },
+                    { id: ITEM.COAL, chance: 10 },
+                    { id: ITEM.IRON_ORE, chance: 6 },
+                    { id: ITEM.GOLD_ORE, chance: 3 },
+                    { id: ITEM.REDSTONE, chance: 3 },
+                    { id: ITEM.DIAMOND, chance: 1 },
+                    { id: ITEM.OBSIDIAN, chance: 1 },
                 ];
                 break;
         }
