@@ -45,7 +45,6 @@ class HitService {
                     setLoadingPercentageCallback(null, true);
                     clearInterval(intervalId);
                     if (this.timeoutId) {
-                        console.log(this.timeoutId);
                         clearTimeout(this.timeoutId);
                         this.timeoutId = null;
                     }

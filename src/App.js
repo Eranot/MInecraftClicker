@@ -8,11 +8,13 @@ import CraftingService from './service/CraftingService';
 import LavaSlot from './component/molecule/LavaSlot/LavaSlot';
 import ItemTooltip from '../src/component/molecule/ItemTooltip/ItemTooltip';
 import AutoClickService from './service/AutoClickService';
+import HudTab from './component/atom/HudTab/HudTab';
 
 function App() {
 
   const [, forceUpdate] = useReducer(x => x + 1, 0);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [selectedTab, setSelectedTab] = useState(0);
 
   const inventoryService = InventoryService.getInstance();
   const handInventorySlots = inventoryService.getHandInventorySlots();
@@ -93,22 +95,34 @@ function App() {
     }
   }
 
+  const trocarAba = (num) => {
+    setSelectedTab(num);
+  }
+
   return (
     <div className="App">
       <div className="row">
         <div className="column">
-          <CraftingTable
-            forceUpdate={forceUpdate}
-            handInventorySlots={handInventorySlots}
-            regularInventorySlots={regularInventorySlots}
-            craftResultSlot={craftResultSlot}
-            craftingTableInventorySlots={craftingTableInventorySlots}
-            mouseSlot={mouseSlot}
-            tryToCreateItem={tryToCreateItem}
-            onSelectItem={onSelectItem}
-            onCreateItem={onCreateItem}
-            setHoveredItem={_setHoveredItem}
-          />
+
+          <div className="row tabs">
+            <HudTab icon="block/crafting_table_front" selected={selectedTab === 0} onClick={() => trocarAba(0)} />
+            <HudTab icon="block/furnace_front" selected={selectedTab === 1} onClick={() => trocarAba(1)} />
+          </div>
+
+          {true && (
+            <CraftingTable
+              forceUpdate={forceUpdate}
+              handInventorySlots={handInventorySlots}
+              regularInventorySlots={regularInventorySlots}
+              craftResultSlot={craftResultSlot}
+              craftingTableInventorySlots={craftingTableInventorySlots}
+              mouseSlot={mouseSlot}
+              tryToCreateItem={tryToCreateItem}
+              onSelectItem={onSelectItem}
+              onCreateItem={onCreateItem}
+              setHoveredItem={_setHoveredItem}
+            />
+          )}
 
           <div className="hand-hit-button-container">
             <ItemSlot

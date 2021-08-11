@@ -3,6 +3,7 @@
     background: #130813;
     transform-origin: top left;
     width: fit-content;
+    z-index: 3;
     box-shadow:
         /* primeira borda */
         calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) #5a1cb8,

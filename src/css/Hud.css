@@ -12,6 +12,7 @@
     background: var(--inner);
     transform-origin: top left;
     width: fit-content;
+    z-index: 1;
     box-shadow:
         /* Aumetando a linha cinza para esquerda e cima */
         calc(var(--pixel-scale) * 1px) calc(var(--pixel-scale) * -1px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) var(--inner),
@@ -64,4 +65,10 @@
         /* Cinza escuro de baixo */
         calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 1px) var(--dark-border),
         calc(var(--pixel-scale) * 2px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 0px) calc(var(--pixel-scale) * 1px) var(--dark-border);
+}
+
+.tabs {
+    margin-bottom: -18px;
+    align-items: center;
+    justify-content: center;
 }
