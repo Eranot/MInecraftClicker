@@ -82,6 +82,15 @@ class InventoryService {
 
             // Lava slot
             new InventorySlot(48),
+
+            // Furnace fuel
+            new InventorySlot(49),
+
+            // Furnace burn
+            new InventorySlot(50),
+
+            // Furnace result
+            new InventorySlot(51),
         ]
     }
 
@@ -111,6 +120,18 @@ class InventoryService {
 
     getLavaSlot = () => {
         return this._inventorySlots[48];
+    }
+
+    getFurnaceFuelSlot = () => {
+        return this._inventorySlots[49];
+    }
+
+    getFurnaceBurnSlot = () => {
+        return this._inventorySlots[50];
+    }
+
+    getFurnaceResultSlot = () => {
+        return this._inventorySlots[51];
     }
 
     moveItem(from, to) {

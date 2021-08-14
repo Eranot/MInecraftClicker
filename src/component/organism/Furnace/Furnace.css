@@ -1,0 +1,22 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 
+        calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px)
+        calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px)
+        calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px) calc(var(--pixel-scale) * 18px);
+}
+
+.fire-icon-container {
+    width: calc(var(--pixel-scale) * 18px);
+    height: calc(var(--pixel-scale) * 18px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fire-icon-container > img {
+    width: 70%;
+    height: 70%;
+    image-rendering: pixelated;
+}
+

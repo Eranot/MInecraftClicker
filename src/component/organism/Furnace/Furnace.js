@@ -1,17 +1,17 @@
 import React from 'react';
 import '../../../css/Hud.css';
-import './CraftingTable.css';
+import './Furnace.css';
 import ItemSlot from '../../atom/ItemSlot/ItemSlot';
-import CraftingSpace from '../../molecule/CraftingSpace/CraftingSpace';
-import CraftResultSlot from '../../molecule/CraftResultSlot/CraftResultSlot';
+import FurnaceResultSlot from '../../molecule/FurnaceResultSlot/FurnaceResultSlot';
 
-const CraftingTable = (props) => {
+const Furnace = (props) => {
 
     const {
         handInventorySlots,
         regularInventorySlots,
         craftResultSlot,
-        craftingTableInventorySlots,
+        furnaceFuelSlot,
+        furnaceBurnSlot,
         onSelectItem,
         setHoveredItem
     } = props;
@@ -20,23 +20,33 @@ const CraftingTable = (props) => {
         <div className="painel">
 
             <div className="hudLabel" style={{ marginTop: 0, marginBottom: 2 }}>
-                Crafting
+                Furnace
             </div>
 
             <div className="row">
                 <div
                     style={{ marginRight: 28 }}
                 >
-                    <CraftingSpace
-                        columns={3}
-                        rows={3}
-                        inventorySlots={craftingTableInventorySlots}
-                        onSelectItem={onSelectItem}
-                        setHoveredItem={setHoveredItem}
-                    />
+                    <div className="column">
+                        <ItemSlot
+                            inventorySlot={furnaceBurnSlot}
+                            onSelectItem={onSelectItem}
+                            setHoveredItem={setHoveredItem}
+                        />
+
+                        <div className="fire-icon-container">
+                            <img src="effect/furnace-fire-empty.png"></img>
+                        </div>
+
+                        <ItemSlot
+                            inventorySlot={furnaceFuelSlot}
+                            onSelectItem={onSelectItem}
+                            setHoveredItem={setHoveredItem}
+                        />
+                    </div>
                 </div>
 
-                <CraftResultSlot
+                <FurnaceResultSlot
                     inventorySlot={craftResultSlot}
                     onSelectItem={onSelectItem}
                     setHoveredItem={setHoveredItem}
@@ -73,4 +83,4 @@ const CraftingTable = (props) => {
     )
 }
 
-export default CraftingTable;
+export default Furnace;

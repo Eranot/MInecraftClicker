@@ -72,3 +72,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.hudLabel {
+    font-family: Minecraft;
+    font-size: 20pt;
+    color: #616161;
+}

@@ -9,6 +9,8 @@ import LavaSlot from './component/molecule/LavaSlot/LavaSlot';
 import ItemTooltip from '../src/component/molecule/ItemTooltip/ItemTooltip';
 import AutoClickService from './service/AutoClickService';
 import HudTab from './component/atom/HudTab/HudTab';
+import Furnace from './component/organism/Furnace/Furnace';
+import MouseSlot from './component/molecule/MouseSlot/MouseSlot';
 
 function App() {
 
@@ -24,6 +26,8 @@ function App() {
   const mouseSlot = inventoryService.getMouseSlot();
   const handSlot = inventoryService.getHandSlot();
   const lavaSlot = inventoryService.getLavaSlot();
+  const furnaceFuelSlot = inventoryService.getFurnaceFuelSlot();
+  const furnaceBurnSlot = inventoryService.getFurnaceBurnSlot();
 
   useEffect(() => {
     document.addEventListener('contextmenu', function (e) {
@@ -109,19 +113,30 @@ function App() {
             <HudTab icon="block/furnace_front" selected={selectedTab === 1} onClick={() => trocarAba(1)} />
           </div>
 
-          {true && (
+          {selectedTab === 0 && (
             <CraftingTable
               forceUpdate={forceUpdate}
               handInventorySlots={handInventorySlots}
               regularInventorySlots={regularInventorySlots}
               craftResultSlot={craftResultSlot}
               craftingTableInventorySlots={craftingTableInventorySlots}
-              mouseSlot={mouseSlot}
-              tryToCreateItem={tryToCreateItem}
               onSelectItem={onSelectItem}
-              onCreateItem={onCreateItem}
               setHoveredItem={_setHoveredItem}
             />
+          )}
+
+          {selectedTab === 1 && (
+            <Furnace
+              forceUpdate={forceUpdate}
+              handInventorySlots={handInventorySlots}
+              regularInventorySlots={regularInventorySlots}
+              craftResultSlot={craftResultSlot}
+              furnaceFuelSlot={furnaceFuelSlot}
+              furnaceBurnSlot={furnaceBurnSlot}
+              onSelectItem={onSelectItem}
+              setHoveredItem={_setHoveredItem}
+            />
+
           )}
 
           <div className="hand-hit-button-container">
@@ -145,6 +160,10 @@ function App() {
           ></LavaSlot>
         </div>
       </div>
+
+      <MouseSlot
+        inventorySlot={mouseSlot}
+      />
 
       <ItemTooltip
         hoveredItem={hoveredItem}
