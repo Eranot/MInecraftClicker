@@ -52,6 +52,9 @@ class PickaxeService extends ToolService {
                     { id: ITEM.OBSIDIAN, chance: 1 },
                 ];
                 break;
+            default:
+                options = [];
+                break;
         }
 
         return this.getItemIdFromOptions(options);

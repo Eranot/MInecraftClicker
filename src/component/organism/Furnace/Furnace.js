@@ -35,7 +35,7 @@ const Furnace = (props) => {
                         />
 
                         <div className="fire-icon-container">
-                            <img src="effect/furnace-fire-empty.png"></img>
+                            <img src="effect/furnace-fire-empty.png" alt="Burning indicator"></img>
                         </div>
 
                         <ItemSlot

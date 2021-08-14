@@ -32,7 +32,7 @@ const ItemSlot = (props) => {
             <div>
                 {inventorySlot?.isAutoClick && !inventorySlot?.item && (
                     <div className="auto-click-background">
-                        <img src="autoclick.png"></img>
+                        <img src="autoclick.png" alt="Auto click"></img>
                     </div>
                 )}
 
