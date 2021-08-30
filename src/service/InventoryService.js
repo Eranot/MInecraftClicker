@@ -39,13 +39,13 @@ class InventoryService {
             new InventorySlot(13, itemService.getItemById(ITEM.DIAMOND_PICKAXE), 1),
             new InventorySlot(14, itemService.getItemById(ITEM.FLINT), 2),
             new InventorySlot(15, itemService.getItemById(ITEM.COAL), 64, 0),
-            new InventorySlot(16, itemService.getItemById(ITEM.OAK_LOG), 64),
+            new InventorySlot(16, itemService.getItemById(ITEM.COAL), 1),
             new InventorySlot(17, itemService.getItemById(ITEM.GOLD_INGOT), 64),
             new InventorySlot(18, itemService.getItemById(ITEM.DIAMOND), 64),
-            new InventorySlot(19, itemService.getItemById(ITEM.COBBLESTONE), 64),
+            new InventorySlot(19, itemService.getItemById(ITEM.COBBLESTONE), 4),
             new InventorySlot(20, itemService.getItemById(ITEM.WOODEN_PICKAXE), 1),
             new InventorySlot(21, itemService.getItemById(ITEM.WOODEN_PICKAXE), 1),
-            new InventorySlot(22),
+            new InventorySlot(22, itemService.getItemById(ITEM.COBBLESTONE), 64),
             new InventorySlot(23),
             new InventorySlot(24),
             new InventorySlot(25),
@@ -181,12 +181,14 @@ class InventoryService {
                 from.quantity -= quantity;
                 to.quantity += quantity;
                 this.checkSlotQuantity(from);
+                this.checkSlotQuantity(to);
             }
         } else if (!to.item) { // If the other slot is empty, create one there
             to.item = from.item;
             to.quantity = quantity;
             from.quantity -= quantity;
             this.checkSlotQuantity(from);
+            this.checkSlotQuantity(to);
         }
 
     }

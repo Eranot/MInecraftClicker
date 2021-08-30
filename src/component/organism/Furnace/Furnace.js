@@ -9,9 +9,9 @@ const Furnace = (props) => {
     const {
         handInventorySlots,
         regularInventorySlots,
-        craftResultSlot,
         furnaceFuelSlot,
         furnaceBurnSlot,
+        furnaceResultSlot,
         onSelectItem,
         setHoveredItem
     } = props;
@@ -24,9 +24,7 @@ const Furnace = (props) => {
             </div>
 
             <div className="row">
-                <div
-                    style={{ marginRight: 28 }}
-                >
+                <div>
                     <div className="column">
                         <ItemSlot
                             inventorySlot={furnaceBurnSlot}
@@ -36,6 +34,15 @@ const Furnace = (props) => {
 
                         <div className="fire-icon-container">
                             <img src="effect/furnace-fire-empty.png" alt="Burning indicator"></img>
+
+                            <div className="fire-fill-container">
+                                <div className="fire-fill" alt="Burning indicator" style={{
+                                    height: furnaceFuelSlot.loading
+                                        ? (100.0 - furnaceFuelSlot.loading) + "%"
+                                        : "0%"
+                                }
+                                }></div>
+                            </div>
                         </div>
 
                         <ItemSlot
@@ -46,8 +53,21 @@ const Furnace = (props) => {
                     </div>
                 </div>
 
+                <div className="arrow-icon-container">
+                    <img src="effect/arrow-empty.png" alt="Arrow indicator"></img>
+
+                    <div className="arrow-fill-container">
+                        <div className="arrow-fill" alt="Arrow indicator" style={{
+                            width: furnaceBurnSlot.loading
+                                ? (furnaceBurnSlot.loading) + "%"
+                                : "0%"
+                        }
+                        }></div>
+                    </div>
+                </div>
+
                 <FurnaceResultSlot
-                    inventorySlot={craftResultSlot}
+                    inventorySlot={furnaceResultSlot}
                     onSelectItem={onSelectItem}
                     setHoveredItem={setHoveredItem}
                 />

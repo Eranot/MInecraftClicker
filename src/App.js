@@ -11,12 +11,13 @@ import AutoClickService from './service/AutoClickService';
 import HudTab from './component/atom/HudTab/HudTab';
 import Furnace from './component/organism/Furnace/Furnace';
 import MouseSlot from './component/molecule/MouseSlot/MouseSlot';
+import FurnaceService from './service/FurnaceService';
 
 function App() {
 
   const [, forceUpdate] = useReducer(x => x + 1, 0);
   const [hoveredItem, setHoveredItem] = useState(null);
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = useState(1);
 
   const inventoryService = InventoryService.getInstance();
   const handInventorySlots = inventoryService.getHandInventorySlots();
@@ -28,6 +29,7 @@ function App() {
   const lavaSlot = inventoryService.getLavaSlot();
   const furnaceFuelSlot = inventoryService.getFurnaceFuelSlot();
   const furnaceBurnSlot = inventoryService.getFurnaceBurnSlot();
+  const furnaceResultSlot = inventoryService.getFurnaceResultSlot();
 
   useEffect(() => {
     document.addEventListener('contextmenu', function (e) {
@@ -59,7 +61,7 @@ function App() {
       if (mouseSlot.quantity > 0) {
         inventoryService.sendItemTo(mouseSlot, inventorySlot, 1);
       } else {
-        inventoryService.sendItemTo(inventorySlot, mouseSlot, Math.floor(inventorySlot.quantity / 2));
+        inventoryService.sendItemTo(inventorySlot, mouseSlot, Math.ceil(inventorySlot.quantity / 2));
       }
     }
 
@@ -71,6 +73,17 @@ function App() {
       }, async () => {
         await forceUpdate();
       });
+    }
+
+    if (inventorySlot === furnaceBurnSlot || inventorySlot === furnaceFuelSlot) {
+      FurnaceService.getInstance().startFurnace(furnaceBurnSlot, furnaceFuelSlot, furnaceResultSlot, (value) => {
+        furnaceBurnSlot.loading = value;
+      }, (value) => {
+        furnaceFuelSlot.loading = value;
+        forceUpdate();
+      }, () => {
+        forceUpdate();
+      })
     }
 
     await forceUpdate();
@@ -130,7 +143,7 @@ function App() {
               forceUpdate={forceUpdate}
               handInventorySlots={handInventorySlots}
               regularInventorySlots={regularInventorySlots}
-              craftResultSlot={craftResultSlot}
+              furnaceResultSlot={furnaceResultSlot}
               furnaceFuelSlot={furnaceFuelSlot}
               furnaceBurnSlot={furnaceBurnSlot}
               onSelectItem={onSelectItem}
