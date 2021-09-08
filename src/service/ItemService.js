@@ -168,6 +168,15 @@ class ItemService {
                 [null, ITEM.STICK, ITEM.STRING],
                 [ITEM.STICK, null, ITEM.STRING],
             ], 1, 1, true),
+
+            Item.burnable(ITEM.COD, "Cod", "item/cod", ITEM.COOKED_COD),
+            new Item(ITEM.COOKED_COD, "Cooked Cod", "item/cooked_cod", []),
+
+            Item.burnable(ITEM.SALMON, "Salmon", "item/salmon", ITEM.COOKED_SALMON),
+            new Item(ITEM.COOKED_SALMON, "Cooked Salmon", "item/cooked_salmon", []),
+
+            new Item(ITEM.PUFFERFISH, "Pufferfish", "item/pufferfish", []),
+            new Item(ITEM.TROPICAL_FISH, "Tropical fish", "item/tropical_fish", []),
         ]
     }
 

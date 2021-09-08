@@ -32,7 +32,7 @@ class InventoryService {
             new InventorySlot(8),
 
             // Regular inventory
-            new InventorySlot(9, itemService.getItemById(ITEM.WOODEN_PICKAXE), 1),
+            new InventorySlot(9, itemService.getItemById(ITEM.FISHING_ROD), 1),
             new InventorySlot(10, itemService.getItemById(ITEM.STONE_PICKAXE), 1),
             new InventorySlot(11, itemService.getItemById(ITEM.IRON_PICKAXE), 1),
             new InventorySlot(12, itemService.getItemById(ITEM.GOLDEN_PICKAXE), 1),

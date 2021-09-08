@@ -4,6 +4,7 @@ import ITEM from "../enum/ItemsEnum";
 import moment from 'moment';
 import PickaxeService from './ToolService/PickaxeService';
 import HandService from './ToolService/HandService';
+import FishingRodService from './ToolService/FishingRodService';
 
 // Takes care of the hit function
 class HitService {
@@ -93,6 +94,11 @@ class HitService {
             case ITEM.DIAMOND_PICKAXE:
                 let pickaxeService = new PickaxeService();
                 itemId = pickaxeService.getRandomItem(equipedItemId);
+                break;
+
+            case ITEM.FISHING_ROD:
+                let fishingRodService = new FishingRodService();
+                itemId = fishingRodService.getRandomItem(equipedItemId);
                 break;
             default:
                 let handService = new HandService();
