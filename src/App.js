@@ -17,7 +17,7 @@ function App() {
 
   const [, forceUpdate] = useReducer(x => x + 1, 0);
   const [hoveredItem, setHoveredItem] = useState(null);
-  const [selectedTab, setSelectedTab] = useState(1);
+  const [selectedTab, setSelectedTab] = useState(0);
 
   const inventoryService = InventoryService.getInstance();
   const handInventorySlots = inventoryService.getHandInventorySlots();

@@ -151,7 +151,23 @@ class ItemService {
             new Item(ITEM.TORCH, "Torch", "block/torch", [[ITEM.COAL], [ITEM.STICK]], 4),
             new Item(ITEM.FLINT_AND_STEEL, "Flint and steel", "item/flint_and_steel", [
                 [ITEM.IRON_INGOT, ITEM.FLINT],
-            ], 1),
+            ], 1, 1),
+
+            new Item(ITEM.STONE_BRICKS, "Stone Bricks", "block/stone_bricks", [
+                [ITEM.STONE, ITEM.STONE], [ITEM.STONE, ITEM.STONE]
+            ], 4),
+            Item.burnable(ITEM.SAND, "Sand", "block/sand", ITEM.GLASS, 64),
+            new Item(ITEM.GLASS, "Glass", "block/glass", []),
+            new Item(ITEM.GLASS_PANE, "Glass pane", "block/glass", [
+                [ITEM.GLASS, ITEM.GLASS], [ITEM.GLASS, ITEM.GLASS]
+            ], 4),
+            new Item(ITEM.DIRT, "Dirt", "block/dirt", []),
+            new Item(ITEM.STRING, "String", "item/string", []),
+            new Item(ITEM.FISHING_ROD, "Fishing rod", "item/fishing_rod", [
+                [null, null, ITEM.STICK],
+                [null, ITEM.STICK, ITEM.STRING],
+                [ITEM.STICK, null, ITEM.STRING],
+            ], 1, 1, true),
         ]
     }
 

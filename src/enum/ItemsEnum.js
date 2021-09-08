@@ -54,6 +54,14 @@ const ITEM = {
     FLINT_AND_STEEL: 'FLINT_AND_STEEL',
     COAL: 'COAL',
     TORCH: 'TORCH',
+
+    STONE_BRICKS: 'STONE_BRICKS',
+    SAND: 'SAND',
+    GLASS: 'GLASS',
+    GLASS_PANE: 'GLASS_PANE',
+    DIRT: 'DIRT',
+    STRING: 'STRING',
+    FISHING_ROD: 'FISHING_ROD',
 }
 
 export default ITEM;
