@@ -177,6 +177,102 @@ class ItemService {
 
             new Item(ITEM.PUFFERFISH, "Pufferfish", "item/pufferfish", []),
             new Item(ITEM.TROPICAL_FISH, "Tropical fish", "item/tropical_fish", []),
+
+            Item.burnable(ITEM.BEEF, "Beef", "item/beef", ITEM.COOKED_BEEF),
+            new Item(ITEM.COOKED_BEEF, "Cooked Beef", "item/cooked_beef", []),
+
+            Item.burnable(ITEM.CHICKEN, "Chicken", "item/chicken", ITEM.COOKED_CHICKEN),
+            new Item(ITEM.COOKED_CHICKEN, "Cooked Chicken", "item/cooked_chicken", []),
+
+            new Item(ITEM.LADDER, "Ladder", "block/ladder", [
+                [ITEM.STICK, null, ITEM.STICK],
+                [ITEM.STICK, ITEM.STICK, ITEM.STICK],
+                [ITEM.STICK, null, ITEM.STICK],
+            ]),
+            new Item(ITEM.LEATHER, "Leather", "item/leather", []),
+
+            // Boots
+            new Item(ITEM.LEATHER_BOOTS, "Leather boots", "item/leather_boots", [
+                [ITEM.LEATHER, null, ITEM.LEATHER],
+                [ITEM.LEATHER, null, ITEM.LEATHER],
+            ], 1, 1),
+            new Item(ITEM.IRON_BOOTS, "Iron boots", "item/iron_boots", [
+                [ITEM.IRON_INGOT, null, ITEM.IRON_INGOT],
+                [ITEM.IRON_INGOT, null, ITEM.IRON_INGOT],
+            ], 1, 1),
+            new Item(ITEM.GOLDEN_BOOTS, "Golden boots", "item/golden_boots", [
+                [ITEM.GOLD_INGOT, null, ITEM.GOLD_INGOT],
+                [ITEM.GOLD_INGOT, null, ITEM.GOLD_INGOT],
+            ], 1, 1),
+            new Item(ITEM.DIAMOND_BOOTS, "Diamond boots", "item/diamond_boots", [
+                [ITEM.DIAMOND, null, ITEM.DIAMOND],
+                [ITEM.DIAMOND, null, ITEM.DIAMOND],
+            ], 1, 1),
+            new Item(ITEM.CHAINMAIL_BOOTS, "Chainmail boots", "item/chainmail_boots", [], 1, 1),
+
+            // Leggings
+            new Item(ITEM.LEATHER_LEGGINGS, "Leather leggings", "item/leather_leggings", [
+                [ITEM.LEATHER, ITEM.LEATHER, ITEM.LEATHER],
+                [ITEM.LEATHER, null, ITEM.LEATHER],
+                [ITEM.LEATHER, null, ITEM.LEATHER],
+            ], 1, 1),
+            new Item(ITEM.IRON_LEGGINGS, "Iron leggings", "item/iron_leggings", [
+                [ITEM.IRON_INGOT, ITEM.IRON_INGOT, ITEM.IRON_INGOT],
+                [ITEM.IRON_INGOT, null, ITEM.IRON_INGOT],
+                [ITEM.IRON_INGOT, null, ITEM.IRON_INGOT],
+            ], 1, 1),
+            new Item(ITEM.GOLDEN_LEGGINGS, "Golden leggings", "item/golden_leggings", [
+                [ITEM.GOLD_INGOT, ITEM.GOLD_INGOT, ITEM.GOLD_INGOT],
+                [ITEM.GOLD_INGOT, null, ITEM.GOLD_INGOT],
+                [ITEM.GOLD_INGOT, null, ITEM.GOLD_INGOT],
+            ], 1, 1),
+            new Item(ITEM.DIAMOND_LEGGINGS, "Diamond leggings", "item/diamond_leggings", [
+                [ITEM.DIAMOND, ITEM.DIAMOND, ITEM.DIAMOND],
+                [ITEM.DIAMOND, null, ITEM.DIAMOND],
+                [ITEM.DIAMOND, null, ITEM.DIAMOND],
+            ], 1, 1),
+            new Item(ITEM.CHAINMAIL_LEGGINGS, "Chainmail leggings", "item/chainmail_leggings", [], 1, 1),
+
+            // Chestplates
+            new Item(ITEM.LEATHER_CHESTPLATE, "Leather chestplate", "item/leather_chestplate", [
+                [ITEM.LEATHER, null, ITEM.LEATHER],
+                [ITEM.LEATHER, ITEM.LEATHER, ITEM.LEATHER],
+                [ITEM.LEATHER, ITEM.LEATHER, ITEM.LEATHER],
+            ], 1, 1),
+            new Item(ITEM.IRON_CHESTPLATE, "Iron chestplate", "item/iron_chestplate", [
+                [ITEM.IRON_INGOT, null, ITEM.IRON_INGOT],
+                [ITEM.IRON_INGOT, ITEM.IRON_INGOT, ITEM.IRON_INGOT],
+                [ITEM.IRON_INGOT, ITEM.IRON_INGOT, ITEM.IRON_INGOT],
+            ], 1, 1),
+            new Item(ITEM.GOLDEN_CHESTPLATE, "Golden chestplate", "item/golden_chestplate", [
+                [ITEM.GOLD_INGOT, null, ITEM.GOLD_INGOT],
+                [ITEM.GOLD_INGOT, ITEM.GOLD_INGOT, ITEM.GOLD_INGOT],
+                [ITEM.GOLD_INGOT, ITEM.GOLD_INGOT, ITEM.GOLD_INGOT],
+            ], 1, 1),
+            new Item(ITEM.DIAMOND_CHESTPLATE, "Diamond chestplate", "item/diamond_chestplate", [
+                [ITEM.DIAMOND, ITEM.DIAMOND, ITEM.DIAMOND],
+                [ITEM.DIAMOND, null, ITEM.DIAMOND],
+            ], 1, 1),
+            new Item(ITEM.CHAINMAIL_CHESTPLATE, "Chainmail chestplate", "item/chainmail_chestplate", [], 1, 1),
+
+            // Helmets
+            new Item(ITEM.LEATHER_HELMET, "Leather helmet", "item/leather_helmet", [
+                [ITEM.LEATHER, ITEM.LEATHER, ITEM.LEATHER],
+                [ITEM.LEATHER, null, ITEM.LEATHER],
+            ], 1, 1),
+            new Item(ITEM.IRON_HELMET, "Iron helmet", "item/iron_helmet", [
+                [ITEM.IRON_INGOT, ITEM.IRON_INGOT, ITEM.IRON_INGOT],
+                [ITEM.IRON_INGOT, null, ITEM.IRON_INGOT],
+            ], 1, 1),
+            new Item(ITEM.GOLDEN_HELMET, "Golden helmet", "item/golden_helmet", [
+                [ITEM.GOLD_INGOT, ITEM.GOLD_INGOT, ITEM.GOLD_INGOT],
+                [ITEM.GOLD_INGOT, null, ITEM.GOLD_INGOT],
+            ], 1, 1),
+            new Item(ITEM.DIAMOND_HELMET, "Diamond helmet", "item/diamond_helmet", [
+                [ITEM.DIAMOND, ITEM.DIAMOND, ITEM.DIAMOND],
+                [ITEM.DIAMOND, null, ITEM.DIAMOND],
+            ], 1, 1),
+            new Item(ITEM.CHAINMAIL_CHESTPLATE, "Chainmail helmet", "item/chainmail_helmet", [], 1, 1),
         ]
     }
 
