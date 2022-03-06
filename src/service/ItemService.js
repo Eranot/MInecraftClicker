@@ -123,9 +123,36 @@ class ItemService {
                 [null, ITEM.STICK],
             ], 1, 1),
 
+            // Swords
+            new Item(ITEM.WOODEN_SWORD, "Wooden Sword", "item/wooden_sword", [
+                [ITEM.OAK_PLANKS],
+                [ITEM.OAK_PLANKS],
+                [ITEM.STICK],
+            ], 1, 1),
+            new Item(ITEM.STONE_SWORD, "Stone Sword", "item/stone_sword", [
+                [ITEM.COBBLESTONE],
+                [ITEM.COBBLESTONE],
+                [ITEM.STICK],
+            ], 1, 1),
+            new Item(ITEM.IRON_SWORD, "Iron Sword", "item/iron_sword", [
+                [ITEM.IRON_INGOT],
+                [ITEM.IRON_INGOT],
+                [ITEM.STICK],
+            ], 1, 1),
+            new Item(ITEM.GOLDEN_SWORD, "Golden Sword", "item/golden_sword", [
+                [ITEM.GOLD_INGOT],
+                [ITEM.GOLD_INGOT],
+                [ITEM.STICK],
+            ], 1, 1),
+            new Item(ITEM.DIAMOND_SWORD, "Diamond Sword", "item/diamond_sword", [
+                [ITEM.DIAMOND],
+                [ITEM.DIAMOND],
+                [ITEM.STICK],
+            ], 1, 1),
+
             // Ores
-            new Item(ITEM.IRON_ORE, "Iron Ore", "block/iron_ore", []),
-            new Item(ITEM.GOLD_ORE, "Gold Ore", "block/gold_ore", []),
+            Item.burnable(ITEM.IRON_ORE, "Iron Ore", "block/iron_ore", ITEM.IRON_INGOT),
+            Item.burnable(ITEM.GOLD_ORE, "Gold Ore", "block/gold_ore", ITEM.GOLD_INGOT),
 
             // Commom blocks
             new Item(ITEM.CRAFTING_TABLE, "Crafting Table", "block/crafting_table_front", [

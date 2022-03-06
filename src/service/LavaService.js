@@ -2,7 +2,7 @@ import ItemService from './ItemService';
 import InventoryService from './InventoryService';
 import moment from 'moment';
 
-// Takes care of the lva destroy function
+// Takes care of the lava destroy function
 class LavaService {
 
     static _instance = null;
@@ -52,13 +52,8 @@ class LavaService {
                 const lavaSlot = inventoryService.getLavaSlot();
 
                 if (lavaSlot.item) {
-
-                    if (lavaSlot.quantity > 1) {
-                        lavaSlot.quantity -= 1;
-                    } else {
-                        lavaSlot.item = null;
-                        lavaSlot.quantity = null;
-                    }
+                    lavaSlot.item = null;
+                    lavaSlot.quantity = null;
                 }
 
                 this.waitingUntil = null;
